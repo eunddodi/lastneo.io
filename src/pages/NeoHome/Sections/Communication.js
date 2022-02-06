@@ -100,7 +100,7 @@ function Communication({ store }) {
   const store_neohome = useSelector((store) => store.neohome);
   console.log(store_neohome);
   return (
-    <SectionContainer color="pink" style={{ marginBottom: "60px" }}>
+    <SectionContainer color="pink" communication>
       <p>소통하기</p>
       <h3>
         네오 집을 친구에게 <span>공유</span>하고

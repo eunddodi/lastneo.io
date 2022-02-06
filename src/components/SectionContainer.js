@@ -32,6 +32,24 @@ const SectionContainer = styled.div`
     font-size: 20px;
   }
   `}
+
+  ${({ owner, frame, communication }) => {
+    if (communication) {
+      return css`
+        margin-bottom: 60px;
+        ${customMedia.lessThan("mobile")`
+          margin-bottom: 24px;
+        `}
+      `;
+    } else if (frame && !owner) {
+      return css`
+        margin-bottom: 60px;
+        ${customMedia.lessThan("mobile")`
+          margin-bottom: 24px;
+        `}
+      `;
+    }
+  }}
 `;
 
 export default SectionContainer;

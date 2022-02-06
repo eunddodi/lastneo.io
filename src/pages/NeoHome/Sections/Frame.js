@@ -9,6 +9,7 @@ import SectionContainer from "../../../components/SectionContainer";
 import SmallPinkBtn from "../../../components/SmallPinkBtn";
 import { customMedia } from "../../../styles/GlobalStyle";
 
+const FrameSectionContainer = styled(SectionContainer)``;
 const FramesContainer = styled(ItemsContainer)`
   div {
     width: 100%;
@@ -51,7 +52,7 @@ const FrameCell = styled.div`
   `}
 `;
 
-function Frame({ store }) {
+function Frame({ store, owner }) {
   const localstore = store.nfts_info;
   const [modal, setModal] = useState(false);
   const [modalMsg, setModalMsg] = useState(-1);
@@ -67,7 +68,7 @@ function Frame({ store }) {
     }
   }, []);
   return (
-    <SectionContainer color="pink">
+    <SectionContainer color="pink" frame owner={owner}>
       <p>액자</p>
       <h3 className={!modal ? "broad-margin" : undefined}>
         네오 소유권과 함께
