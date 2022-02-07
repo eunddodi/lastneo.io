@@ -79,10 +79,10 @@ function Result() {
             <div>
               <KakaoShareButton props={kakaoData} />
               <FacebookShareButton url={store.home_address}>
-                <img src={images.fb} />
+                <img className="sns-img" src={images.fb} />
               </FacebookShareButton>
               <TwitterShareButton url={store.home_address}>
-                <img src={images.tw} />
+                <img className="sns-img" src={images.tw} />
               </TwitterShareButton>
             </div>
             <p>공유하기</p>
@@ -139,7 +139,7 @@ const StaticBtn = styled(Button)`
   margin-bottom: 60px;
   position: static;
   ${customMedia.lessThan("mobile")`
-  margin: 48px 0;
+  margin: 24px 0;
   `}
 `;
 
@@ -206,6 +206,9 @@ const StyledDiv = styled.div`
   h1 {
     font-size: 20px;
     line-height: 28px;
+    p {
+      font-size: 20px;
+    }
   }
   h2 {
     font-weight: 400;
@@ -217,6 +220,8 @@ const StyledDiv = styled.div`
   }
   img {
     margin-top: 32px;
+    width: 240px;
+    height: 240px;
   }
 
   `}
@@ -231,10 +236,11 @@ const ShareDiv = styled.div`
     background-color: transparent;
     padding: 0;
   }
-  img {
+  .sns-img {
+    width: 50px;
+    height: 50px;
     margin-top: 0px;
-    width: 40px;
-    height: 40px;
+
     &:hover {
       filter: brightness(50%);
     }
@@ -249,5 +255,9 @@ const ShareDiv = styled.div`
   ${customMedia.lessThan("mobile")`
     margin-top: 32px;
     margin-bottom: 24px;
+    .sns-img {
+      width: 40px;
+      height: 40px;
+    }
   `}
 `;

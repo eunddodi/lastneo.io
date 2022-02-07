@@ -14,13 +14,11 @@ import React from "react";
 import NotFound from "./pages/NotFound";
 
 const AppBlock = styled.div`
-  // height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: red; */
 `;
 
 function App() {
@@ -41,7 +39,7 @@ function App() {
             <Route exact path="/login" component={EnterId}></Route>
             <Route path="/register" component={Register}></Route>
             <Route path="/resetpw" component={ResetPw}></Route>
-            <Route path="/notfound" component={NotFound}></Route>
+            <Route path="/404" component={NotFound}></Route>
             <Route path="/:id" component={NeoHome}></Route>
           </Switch>
         </AppBlock>

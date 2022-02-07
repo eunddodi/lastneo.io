@@ -9,7 +9,6 @@ const KakaoShareButton = (props) => {
 
   const createKakaoButton = (props) => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
-    console.log("log");
     if (window.Kakao) {
       const kakao = window.Kakao;
       // 중복 initialization 방지
@@ -48,7 +47,7 @@ const KakaoShareButton = (props) => {
     <div className="kakao-share-button" style={{ margin: "0px" }}>
       {/* Kakao share button */}
       <button id="kakao-link-btn">
-        <img src={images.kakao} alt="kakao-share-icon" />
+        <img src={images.kakao} alt="kakao-share-icon" className="sns-img" />
       </button>
     </div>
   );

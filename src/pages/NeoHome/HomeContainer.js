@@ -8,6 +8,7 @@ import { getGuestInfo } from "../../_actions/guest_action";
 import { getOwnerInfo } from "../../_actions/owner_action";
 import { useDispatch, useSelector } from "react-redux";
 import HomeNavbar from "../../components/HomeNavbar";
+import { enterAddress } from "../../_actions/login_actions";
 
 function HomeContainer({ match, history }) {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ function HomeContainer({ match, history }) {
   const [showOwner, setShowOwner] = useState(false);
 
   const location = useLocation();
+
+  console.log("home container rendered");
 
   useEffect(() => {
     const data = location.state;

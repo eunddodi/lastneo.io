@@ -34,6 +34,7 @@ const StyledNav = styled.div`
     background-color: transparent;
   }
   ${customMedia.lessThan("mobile")`
+    height: 56px;
     width: 100%;
   `}
 `;
