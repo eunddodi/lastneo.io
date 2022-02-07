@@ -97,15 +97,21 @@ const CopyDiscode = styled.div`
   `}
 `;
 
-const hashtags = ["라스트네오", "나를", "담은", "캐릭터"];
-const snsTitle = "나를 담은 네오 캐릭터는?";
-const snsDesc = "MBTI와 나를 잘 설명하는 단어로 표현된 내 캐릭터를 보러 와!";
+const hashtags = ["라스트네오", "나를", "담은", "캐릭터", "mbti", "가치관"];
+const snsTitle = "나를 담은 네오 캐릭터는? 보러가기 → ";
+const snsDesc =
+  "'MBTI'와 '나를 잘 설명하는 단어'로 표현된 내 캐릭터를 보러 와!";
 
 function Communication({ store }) {
-  const kakaoData = { img: store.neo_image, home_address: store.home_address };
+  const kakaoDesc = `${store.value_items.description} ${store.mbti} ${store.mbti_name}`;
+  const kakaoData = {
+    img: store.neo_image,
+    home_address: store.home_address,
+    desc: kakaoDesc,
+  };
   const store_neohome = useSelector((store) => store.neohome);
   const [modal, setModal] = useState(false);
-
+  console.log(store);
   useEffect(() => {
     if (modal) {
       let timer = setTimeout(() => {

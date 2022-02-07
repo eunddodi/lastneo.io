@@ -72,7 +72,6 @@ function Result() {
         <StyledDiv>
           <h3>나의 네오 캐릭터는..</h3>
           <h1>
-            {/* {store.item_description} */}
             {generateItemDesc(store)}
             <p>
               '{store.mbti} <span>{store.mbti_name}</span>'

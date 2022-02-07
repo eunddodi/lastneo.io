@@ -23,8 +23,7 @@ const KakaoShareButton = ({ props }) => {
         objectType: "feed",
         content: {
           title: "나를 담은 네오 캐릭터는?",
-          description:
-            "mbti와 나를 잘 설명하는 단어로 표현된 내 캐릭터를 보러 와!",
+          description: `'${props.desc}', 내 캐릭터 보러올래?`,
           imageUrl: `${props.img}`,
           link: {
             mobileWebUrl: `${props.home_address}`,
@@ -33,7 +32,7 @@ const KakaoShareButton = ({ props }) => {
         },
         buttons: [
           {
-            title: "친구네 방 구경가기",
+            title: "친구네 집 구경가기",
             link: {
               mobileWebUrl: `${props.home_address}`,
               webUrl: `${props.home_address}`,

@@ -22,11 +22,6 @@ function Profile({ store, owner, nickname }) {
     setDesc(e.target.value);
   };
 
-  // const onBlurHandler = () => {
-  //   setEditable(false);
-  //   setDesc(originalDesc);
-  // };
-
   const onSubmitHandler = () => {
     let data = { description: desc, nickname };
     console.log(data);
