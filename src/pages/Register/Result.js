@@ -19,6 +19,7 @@ import Container from "../../components/Container";
 import ResultNavbar from "../../components/ResultNavbar";
 import ResultFooter from "../../components/ResultFooter";
 import images from "../../assets";
+import CopyModal from "../../components/modals/CopyModal";
 
 function Result() {
   const store = useSelector((store) => store.register.result);
@@ -82,6 +83,7 @@ function Result() {
           <CopyToClipboard text={store.home_address}>
             <SmallPinkBtn>주소 복사</SmallPinkBtn>
           </CopyToClipboard>
+          <CopyModal />
           <StaticBtn onClick={onClickHandler} color="pink">
             네오 집으로 가기
           </StaticBtn>

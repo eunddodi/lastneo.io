@@ -8,6 +8,7 @@ import {
   EDIT_DESC_SUCCESS,
   EDIT_DESC_FAILURE,
 } from "./types";
+import { REACT_APP_DB_HOST } from "../keys";
 
 // 페이지 렌더링 시 서버로부터 정보 받아오기
 export const getOwnerInfo = async (nickname) => {
