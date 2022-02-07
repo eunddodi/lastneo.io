@@ -19,11 +19,11 @@ import Container from "../../components/Container";
 import ResultNavbar from "../../components/ResultNavbar";
 import ResultFooter from "../../components/ResultFooter";
 import images from "../../assets";
-import CopyModal from "../../components/modals/CopyModal";
+import MsgModal from "../../components/modals/MsgModal";
 
 function Result() {
   const store = useSelector((store) => store.register.result);
-  console.log(store);
+  const [modal, setModal] = useState(false);
   const historyHook = useHistory();
   const kakaoData = { img: store.neo_image, home_address: store.home_address };
   const onClickHandler = () => {
@@ -47,6 +47,17 @@ function Result() {
       window.location.reload();
     }
   };
+
+  useEffect(() => {
+    if (modal) {
+      let timer = setTimeout(() => {
+        setModal(false);
+      }, 2000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [modal]);
 
   const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
   return (
@@ -81,9 +92,17 @@ function Result() {
           </h3>
           <h2>{store.home_address}</h2>
           <CopyToClipboard text={store.home_address}>
-            <SmallPinkBtn>주소 복사</SmallPinkBtn>
+            <SmallPinkBtn
+              onClick={() => {
+                setTimeout(() => {
+                  setModal(true);
+                }, 500);
+              }}
+            >
+              주소 복사
+            </SmallPinkBtn>
           </CopyToClipboard>
-          <CopyModal />
+          <MsgModal show={modal} share center />
           <StaticBtn onClick={onClickHandler} color="pink">
             네오 집으로 가기
           </StaticBtn>
@@ -116,7 +135,7 @@ const generateItemDesc = (store) => {
 };
 
 const StaticBtn = styled(Button)`
-  margin-top: 60px;
+  margin-top: 80px;
   margin-bottom: 60px;
   position: static;
   ${customMedia.lessThan("mobile")`

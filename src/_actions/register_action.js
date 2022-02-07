@@ -21,13 +21,10 @@ import { REACT_APP_DB_HOST } from "../keys";
 // 핸드폰 번호 입력 후 인증번호 전송 요청하는 액션
 export const getAuth = async (dataTosubmit) => {
   try {
-    console.log(REACT_APP_DB_HOST);
     const req = await axios.post(
       REACT_APP_DB_HOST + "/api/v1/sms/send/",
       dataTosubmit
     );
-    console.log("res");
-    console.log(req);
     return {
       type: AUTH_REQ_SUCCESS,
       payload: dataTosubmit.phone,
@@ -109,18 +106,15 @@ export const sendValues = (data) => {
 // 닉네임 사용 가능 여부를 응답으로 받음
 export const sendNickname = async (dataTosubmit) => {
   try {
-    console.log(dataTosubmit);
     const req = await axios.post(
       REACT_APP_DB_HOST + "/accounts/v1/check_nickname/",
       dataTosubmit
     );
-    console.log(req);
     return {
       type: NICKNAME_SUCCESS,
       payload: dataTosubmit.nickname,
     };
   } catch (e) {
-    console.log(e);
     return {
       type: NICKNAME_FAILURE,
       payload: e,
@@ -129,16 +123,12 @@ export const sendNickname = async (dataTosubmit) => {
 };
 // 서버에 회원가입 요청하는 액션
 export const signUp = async (dataTosubmit) => {
-  console.log("회원가입 정보");
-  console.log(dataTosubmit);
   try {
     const req = await axios.post(
       REACT_APP_DB_HOST + "/accounts/v1/signup/",
       dataTosubmit
     );
     const { token } = req.data;
-    console.log("토큰");
-    console.log(token);
     localStorage.setItem("token", token);
     return {
       type: SIGNUP_SUCCESS,

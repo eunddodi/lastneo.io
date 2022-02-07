@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SectionContainer from "../../../components/SectionContainer";
 import {
   FacebookShareButton,
@@ -14,6 +14,7 @@ import images from "../../../assets";
 import { customMedia } from "../../../styles/GlobalStyle";
 import KakaoShareButton from "../../../components/KaKaoShareButton";
 import { useSelector } from "react-redux";
+import MsgModal from "../../../components/modals/MsgModal";
 
 const ShareBtns = styled.div`
   align-items: center;
@@ -44,15 +45,16 @@ const ShareBtns = styled.div`
 `;
 
 const CopyDiscode = styled.div`
-  flex-direction: row;
-  img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
-  }
-  div {
-    flex: 1;
-    span {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  .copy,
+  .discode {
+    .copy-discode-img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    div {
       margin-bottom: 16px;
       h4 {
         font-size: 20px;
@@ -66,20 +68,19 @@ const CopyDiscode = styled.div`
     margin-bottom: 4px;
   }
 
-    margin-bottom: 0;
-  }
   ${customMedia.lessThan("mobile")`
-  flex-direction: column;
-  div { 
+  grid-template-columns: 100%;
+  gird-template-rows: repeat(2, 1fr);
+  .copy, .discode { 
     position: relative;
     flex-direction: row;
     margin-bottom: 33px;
-    img {
+    .copy-discode-img {
       width: 40px;
       height: 40px;
       margin-right: 16px;
     }
-    span {
+    div {
       margin-right: 
       h4 {
         font-size: 16px;
@@ -104,7 +105,19 @@ const snsDesc = "MBTI와 나를 잘 설명하는 단어로 표현된 내 캐릭�
 function Communication({ store }) {
   const kakaoData = { img: store.neo_image, home_address: store.home_address };
   const store_neohome = useSelector((store) => store.neohome);
-  console.log(store_neohome);
+  const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    if (modal) {
+      let timer = setTimeout(() => {
+        setModal(false);
+      }, 2000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [modal]);
+
   return (
     <SectionContainer color="pink" communication>
       <p>소통하기</p>
@@ -135,22 +148,31 @@ function Communication({ store }) {
         <p>공유하기</p>
       </ShareBtns>
       <CopyDiscode>
-        <div>
-          <img src={images.pinkhome} />
-          <span>
+        <div className="copy">
+          <img className="copy-discode-img" src={images.pinkhome} />
+          <div>
             <h4>{`lastneo.io/${store_neohome.nickname}`}</h4>
             <p>친구를 집으로 초대 해보세요!</p>
-          </span>
+          </div>
           <CopyToClipboard text={store.home_address}>
-            <SmallPinkBtn>복사하기</SmallPinkBtn>
+            <SmallPinkBtn
+              onClick={() => {
+                setTimeout(() => {
+                  setModal(true);
+                }, 500);
+              }}
+            >
+              복사하기
+            </SmallPinkBtn>
           </CopyToClipboard>
+          <MsgModal show={modal} share left mobile />
         </div>
-        <div>
-          <img src={images.pinkbubble} />
-          <span>
+        <div className="discode">
+          <img className="copy-discode-img" src={images.pinkbubble} />
+          <div>
             <h4>디스코드방</h4>
             <p>나와 비슷한 네오들과 소통해보세요!</p>
-          </span>
+          </div>
           <SmallPinkBtn>둘러보기</SmallPinkBtn>
         </div>
       </CopyDiscode>
