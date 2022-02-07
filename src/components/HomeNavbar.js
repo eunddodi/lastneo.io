@@ -71,6 +71,7 @@ const StyledNav = styled.div`
   }
   ${customMedia.lessThan("mobile")`
     width: 100%;
+    height: 56px;
   `}
 `;
 

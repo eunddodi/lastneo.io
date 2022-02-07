@@ -123,6 +123,7 @@ const ProfileSection = styled.section`
   }
   h3 {
     font-size: 20px;
+    margin-bottom: 4px;
   }
   div.desc-wrapper {
     width: 100%;
