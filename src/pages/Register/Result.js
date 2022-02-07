@@ -26,6 +26,9 @@ function Result() {
   const [modal, setModal] = useState(false);
   const historyHook = useHistory();
   const kakaoData = { img: store.neo_image, home_address: store.home_address };
+  const hashtags = ["라스트네오", "나를", "담은", "캐릭터"];
+  const snsTitle = "나를 담은 네오 캐릭터는?";
+  const snsDesc = "MBTI와 나를 잘 설명하는 단어로 표현된 내 캐릭터를 보러 와!";
   const onClickHandler = () => {
     historyHook.push({
       pathname: `/${store.nickname}`,
@@ -78,10 +81,18 @@ function Result() {
           <ShareDiv>
             <div>
               <KakaoShareButton props={kakaoData} />
-              <FacebookShareButton url={store.home_address}>
+              <FacebookShareButton
+                url={store.home_address}
+                quote={snsDesc}
+                hashtag={`#${hashtags[0]}`}
+              >
                 <img className="sns-img" src={images.fb} />
               </FacebookShareButton>
-              <TwitterShareButton url={store.home_address}>
+              <TwitterShareButton
+                url={store.home_address}
+                title={snsTitle}
+                hashtags={hashtags}
+              >
                 <img className="sns-img" src={images.tw} />
               </TwitterShareButton>
             </div>

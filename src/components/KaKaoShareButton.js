@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import images from "../assets";
 
-const KakaoShareButton = (props) => {
+const KakaoShareButton = ({ props }) => {
   useEffect(() => {
     createKakaoButton(props);
   }, [props]);

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
-import { Redirect, Route, useHistory } from "react-router";
+import { Route, useHistory } from "react-router";
 import HomeContainer from "./HomeContainer";
 import FrontDoor from "./FrontDoor";
 import Menu from "./Menu";
