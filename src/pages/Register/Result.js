@@ -4,12 +4,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import { useHistory } from "react-router-dom";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  TwitterShareButton,
-} from "react-share";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 import KakaoShareButton from "../../components/KaKaoShareButton";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import SmallPinkBtn from "../../components/SmallPinkBtn";
@@ -50,6 +45,13 @@ function Result() {
       window.location.reload();
     }
   };
+
+  // 스와이프 방식의 뒤로가기를 제어
+  function blockTouchStart(event) {
+    if (event.pageX > 20) return;
+    event.preventDefault();
+  }
+  window.addEventListener("touchstart", blockTouchStart);
 
   useEffect(() => {
     if (modal) {
