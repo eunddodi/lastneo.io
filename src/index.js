@@ -25,10 +25,6 @@ const store = createStoreWithMiddleware(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-require("dotenv").config();
-console.log(process.env.REACT_APP_DB_HOST); //YOU_API_KEY
-console.log(process.env.DB_USER); //undefind
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
