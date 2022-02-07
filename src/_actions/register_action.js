@@ -52,7 +52,7 @@ export const confirmMarketing = (confirmed) => {
 export const enterAuth = async (dataTosubmit) => {
   try {
     const req = await axios.post(
-      process.env.REACT_APP_DB_HOST + "/api/v1/sms/confirm/",
+      REACT_APP_DB_HOST + "/api/v1/sms/confirm/",
       dataTosubmit
     );
     return {
@@ -111,7 +111,7 @@ export const sendNickname = async (dataTosubmit) => {
   try {
     console.log(dataTosubmit);
     const req = await axios.post(
-      process.env.REACT_APP_DB_HOST + "/accounts/v1/check_nickname/",
+      REACT_APP_DB_HOST + "/accounts/v1/check_nickname/",
       dataTosubmit
     );
     console.log(req);
@@ -133,7 +133,7 @@ export const signUp = async (dataTosubmit) => {
   console.log(dataTosubmit);
   try {
     const req = await axios.post(
-      process.env.REACT_APP_DB_HOST + "/accounts/v1/signup/",
+      REACT_APP_DB_HOST + "/accounts/v1/signup/",
       dataTosubmit
     );
     const { token } = req.data;
