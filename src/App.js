@@ -12,6 +12,9 @@ import NeoHome from "./pages/NeoHome";
 import ResetPw from "./pages/ResetPw";
 import React from "react";
 import NotFound from "./pages/NotFound";
+import { Helmet } from "react-helmet";
+import favicon from "./assets/favicon.ico";
+import mainImg from "./assets/main_web.png";
 
 const AppBlock = styled.div`
   height: 100%;
@@ -30,10 +33,32 @@ function App() {
     setScreenSize();
   });
   window.addEventListener("resize", () => setScreenSize());
-
+  const currentUrl = document.location.href;
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Helmet>
+        <title>라스트네오</title>
+        <link rel="icon" href={favicon} />
+        <meta property="og:url" content={currentUrl} />
+        {/* title 정보 */}
+        <meta property="og:title" content="일론 머스크 지수 테스트하기" />
+        {/* 페이지 상세 정보 */}
+        <meta
+          property="og:description"
+          content="나는 일론 머스크에 대해서 얼마나 알고 있을까?"
+        />
+        {/* 페이지 대표 이미지 정보 */}
+        <meta property="og:image" content={mainImg} />
+
+        {/* 트위터 메타 정보 */}
+        <meta name="twitter:title" content="일론 머스크 지수 테스트하기" />
+        <meta
+          name="twitter:description"
+          content="나는 일론 머스크에 대해서 얼마나 알고 있을까?"
+        />
+        <meta name="twitter:image" content={mainImg} />
+      </Helmet>
       <BrowserRouter>
         <AppBlock className="app-container">
           <Switch>
