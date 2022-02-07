@@ -119,7 +119,7 @@ function Item({ store }) {
         캐릭터에 <span>표현한 아이템</span>이에요
       </h3>
       {modal && (
-        <NewItemModal>
+        <NewItemModal newItem={newItem}>
           <img src={yellowalert} />
           <p>이전과 달라진 아이템이 있어요. 네오가 인격을 담았나 보군요!</p>
         </NewItemModal>

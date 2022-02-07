@@ -51,7 +51,16 @@ import mini_02 from "./illustration/mini_02.gif";
 import mini_03 from "./illustration/mini_03.gif";
 import mini_04 from "./illustration/mini_04.gif";
 import itembg from "./itembg.png";
+import comingsoon from "./comingsoon.png";
+import yellowalert from "./yellowalert.png";
+import itemloading from "./itemloading.png";
+import nftloading from "./nftloading.png";
+
 const images = {
+  itemloading,
+  nftloading,
+  yellowalert,
+  comingsoon,
   itembg,
   mini_01,
   mini_02,

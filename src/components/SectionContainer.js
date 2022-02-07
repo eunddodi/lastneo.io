@@ -1,5 +1,5 @@
 /* eslint-disable */
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { customMedia } from "../styles/GlobalStyle";
 
 const SectionContainer = styled.div`
@@ -33,8 +33,8 @@ const SectionContainer = styled.div`
   }
   `}
 
-  ${({ owner, frame, communication }) => {
-    if (communication) {
+  ${({ owner, frame, communication, question }) => {
+    if (communication || question) {
       return css`
         margin-bottom: 60px;
         ${customMedia.lessThan("mobile")`

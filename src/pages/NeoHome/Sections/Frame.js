@@ -76,7 +76,7 @@ function Frame({ store, owner }) {
         캐릭터 액자가 <span>{localstore.length}번</span> 발급되었어요
       </h3>
       {modal && (
-        <NewItemModal>
+        <NewItemModal newItem={false}>
           <img src={yellowalert} />
           <p>{messages[modalMsg]}</p>
         </NewItemModal>
