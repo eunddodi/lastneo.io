@@ -50,6 +50,7 @@ const StyledNav = styled.div`
   text-align: center;
   color: ${(props) => props.theme.palette.pink};
   position: fixed;
+  top: 0;
   z-index: 100;
   /* position: relative; */
   display: flex;
