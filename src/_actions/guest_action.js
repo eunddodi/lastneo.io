@@ -6,6 +6,7 @@ import { GUEST_INFO_SUCCESS, GUEST_INFO_FAILURE } from "./types";
 export const getGuestInfo = async (nickname) => {
   console.log("게스트 정보 요청");
   try {
+    console.log(process.env.REACT_APP_DB_HOST);
     const req = await axios.get(
       process.env.REACT_APP_DB_HOST + `/api/v1/neohomeguest/${nickname}`
     );

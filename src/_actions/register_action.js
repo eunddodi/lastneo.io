@@ -20,7 +20,6 @@ import {
 // 핸드폰 번호 입력 후 인증번호 전송 요청하는 액션
 export const getAuth = async (dataTosubmit) => {
   try {
-    console.log(dataTosubmit);
     const req = await axios.post(
       process.env.REACT_APP_DB_HOST + "/api/v1/sms/send/",
       dataTosubmit
