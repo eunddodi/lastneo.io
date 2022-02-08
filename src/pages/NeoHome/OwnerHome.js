@@ -37,6 +37,7 @@ function OwnerHome({ nickname }) {
   return (
     <>
       <Helmet>
+        <title>은지네</title>
         {/* URL 정보 */}
         <meta property="og:url" content={currentUrl} />
         {/* title 정보 */}

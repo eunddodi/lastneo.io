@@ -41,6 +41,15 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <HelmetProvider>
+          <Helmet>
+            <title>라스트네오</title>
+            <link rel="icon" href={favicon} />
+            <meta
+              property="og:description"
+              content="나의 인격을 네오에 담아봐!"
+            />
+            <meta property="og:image" content={mainImg} />
+          </Helmet>
           <AppBlock className="app-container">
             <Switch>
               <Route exact path="/" component={LandingPage}></Route>
