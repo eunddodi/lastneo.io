@@ -35,38 +35,11 @@ function App() {
     setScreenSize();
   });
   window.addEventListener("resize", () => setScreenSize());
-  const currentUrl = document.location.href;
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
         <HelmetProvider>
-          <Helmet>
-            <title>LASTNEO</title>
-            <meta
-              name="description"
-              content="라스트네오 설명이지롱 App.js안에 있음"
-            />
-            <link rel="icon" href={favicon} />
-            <meta property="og:url" content={currentUrl} />
-            {/* title 정보 */}
-            <meta property="og:title" content="일론 머스크 지수 테스트하기" />
-            {/* 페이지 상세 정보 */}
-            <meta
-              property="og:description"
-              content="나는 일론 머스크에 대해서 얼마나 알고 있을까?"
-            />
-            {/* 페이지 대표 이미지 정보 */}
-            <meta property="og:image" content={mainImg} />
-
-            {/* 트위터 메타 정보 */}
-            <meta name="twitter:title" content="일론 머스크 지수 테스트하기" />
-            <meta
-              name="twitter:description"
-              content="나는 일론 머스크에 대해서 얼마나 알고 있을까?"
-            />
-            <meta name="twitter:image" content={mainImg} />
-          </Helmet>
           <AppBlock className="app-container">
             <Switch>
               <Route exact path="/" component={LandingPage}></Route>

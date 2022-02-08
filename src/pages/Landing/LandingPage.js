@@ -7,6 +7,8 @@ import LandingNav from "./LandingNav";
 import { customMedia } from "../../styles/GlobalStyle";
 import images from "../../assets";
 import Modal from "../../components/modals/ComingSoonModal";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import mainImg from "../../assets/main_web.png";
 
 const StyledBtn = styled.button`
   width: 142px;
@@ -287,10 +289,25 @@ function LandingPage() {
   const onClickHandler = () => {
     history.push("/register");
   };
+  const currentUrl = document.location.href;
+
   return (
     <>
-      <LandingNav />
+      <Helmet>
+        <meta property="og:url" content={currentUrl} />
+        {/* title 정보 */}
+        <meta property="og:title" content="라스트네오 홈페이지" />
+        {/* 페이지 상세 정보 */}
+        <meta property="og:description" content="Lastneno HomePage" />
+        {/* 페이지 대표 이미지 정보 */}
+        <meta property="og:image" content={mainImg} />
 
+        {/* 트위터 메타 정보 */}
+        <meta name="twitter:title" content="라스트네오 홈페이지" />
+        <meta name="twitter:description" content="Lastneno HomePage" />
+        <meta name="twitter:image" content={mainImg} />
+      </Helmet>
+      <LandingNav />
       <Container>
         <Section1>
           <div className="img-web"></div>

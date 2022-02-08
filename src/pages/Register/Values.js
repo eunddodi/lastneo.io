@@ -111,6 +111,12 @@ const StyledBtn = styled.button`
           background: ${theme.palette.darkPurple};
           color: ${theme.palette.grey};
         }
+        ${customMedia.lessThan("mobile")`
+        &:hover {
+          background: ${theme.palette.purple};
+          color: ${theme.palette.white};
+        }
+        `}
       `;
     } else if (color == "lightPurple") {
       return css`

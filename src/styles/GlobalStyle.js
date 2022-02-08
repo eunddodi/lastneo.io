@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -webkit-appearance:none;
     }
     html {
         height: 100%;
