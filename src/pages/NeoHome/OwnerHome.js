@@ -18,6 +18,7 @@ function OwnerHome({ nickname }) {
   const store = useSelector((store) => store.owner);
   const store_neohome = useSelector((store) => store.neohome);
   const currentUrl = document.location.href;
+  console.log(currentUrl);
   const dispatch = useDispatch();
 
   // const [tab, setTab] = useState(true); // true이면 캐릭터 방, false면 네오 방
@@ -46,10 +47,7 @@ function OwnerHome({ nickname }) {
         {/* 페이지 상세 정보 */}
         <meta property="og:description" content="네오 설명" />
         {/* 페이지 대표 이미지 정보 */}
-        <meta
-          property="og:image"
-          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-        />
+        <meta property="og:image" content={store.mini_profile} />
         {/* 트위터 메타 정보 */}
         <meta
           name="twitter:title"
