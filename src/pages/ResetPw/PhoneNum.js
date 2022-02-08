@@ -9,6 +9,7 @@ import Container from "../../components/Container";
 import FormDiv from "../../components/FormDiv";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import { useSelector } from "react-redux";
 
 // 현관 - 비밀번호 재설정
 // 해당 루트로 접근
@@ -18,6 +19,8 @@ function PhoneNum() {
   const [phoneNum, setPhoneNum] = useState("");
   const [type, setType] = useState(false);
   const [msg, setMsg] = useState(0);
+  const store = useSelector((store) => store.neohome);
+  console.log(store);
   const messages = [
     "전화번호 10자리 혹은 11자리를 알려주세요",
     "10자리 혹은 11자리로 알려주세요",
@@ -43,12 +46,12 @@ function PhoneNum() {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    let body = { nickname: location.state.nickname, phone: phoneNum };
+    let body = { nickname: store.nickname, phone: phoneNum };
     getAuth(body).then((response) => {
       if (response.status) {
         history.push({
           pathname: "/resetpw/authnum",
-          state: { phone: phoneNum, nickname: location.state.nickname },
+          state: { phone: phoneNum, nickname: store.nickname },
         });
       } else if (response.payload.non_field_errors[0] == "정보 없음") {
         console.log(response.payload);
