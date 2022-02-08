@@ -171,7 +171,7 @@ function Question({ store, isDone }) {
           </Questions>
         )}
         <ToggleBtn onClick={toggleHandler} disabled={done}>
-          <img src={done ? images.toggleclose : images.toggleopen} />
+          <img src={done || open ? images.toggleclose : images.toggleopen} />
         </ToggleBtn>
       </QuestionsContainer>
       <DescDiv>
