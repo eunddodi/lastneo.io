@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import InputDiv from "../../components/InputDiv";
 import Button from "../../components/Button";
 import { isPassword } from "../../utils/regexes";
@@ -18,6 +18,7 @@ import LoadingModal from "../../components/modals/LoadingModal";
 function Password() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const myRef = useRef();
   const store = useSelector((state) => state.register);
   const [password, setPassword] = useState("");
   const [vPassword, setVPassword] = useState("");
@@ -65,6 +66,8 @@ function Password() {
   }, [vPassword]);
 
   const typeHandler = () => {
+    myRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
     if (type) {
       setMsg(0);
     } else if (password.length == 0) {
@@ -97,8 +100,19 @@ function Password() {
 
   const onFocusHandler = () => {
     console.log("is it happend?");
+    myRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
     // window.scrollTo(0, 0);
   };
+
+  // myRef.current.addEventListener("touchstart", (event) => {
+  //   event.stopPropagation();
+  //   myRef.current.style.transform = "TranslateY(-10000px)";
+  //   myRef.current.focus();
+  //   setTimeout(function () {
+  //     myRef.current.style.transform = "none";
+  //   }, 100);
+  // });
 
   return (
     <>
@@ -118,8 +132,10 @@ function Password() {
                 placeholder="ABCD1234!"
                 value={password}
                 onChange={onPasswordHandler}
+                // onFocus={onFocusHandler}
                 onBlur={typeHandler}
                 maxLength="16"
+                ref={myRef}
               ></input>
               <p>{messages[msg]}</p>
             </form>
