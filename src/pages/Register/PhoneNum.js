@@ -95,7 +95,7 @@ function PhoneNum() {
 
   return (
     <>
-      <Navbar goBack={true} />
+      <Navbar goBack={true} color="white" />
       <Container>
         <InputDiv
           className="input-container"

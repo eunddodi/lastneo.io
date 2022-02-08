@@ -39,6 +39,9 @@ function Navbar({ color, goBack }) {
 
 export default withRouter(Navbar);
 
+Navbar.defaultProps = {
+  color: "white",
+};
 const StyledNav = styled.div`
   height: 60px;
   width: 100%;
@@ -55,6 +58,7 @@ const StyledNav = styled.div`
   justify-content: center;
 
   ${({ theme, color }) => {
+    console.log(color);
     const selected = theme.palette[color];
     return css`
       background: ${selected};
@@ -74,10 +78,6 @@ const StyledNav = styled.div`
     height: 56px;
   `}
 `;
-
-StyledNav.defaultProps = {
-  color: "#ffffff",
-};
 
 const GoBackBtn = styled.button`
   height: 60px;
