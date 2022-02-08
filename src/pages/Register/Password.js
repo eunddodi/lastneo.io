@@ -13,6 +13,7 @@ import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import PwFormDiv from "../../components/PwFormDiv";
+import LoadingModal from "../../components/modals/LoadingModal";
 
 function Password() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Password() {
   const [type, setType] = useState(false);
   const [msg, setMsg] = useState(1);
   const [vMsg, setVMsg] = useState(3);
+  const [loadingModalVisible, setLoadingModalVisible] = useState(false);
 
   const messages = [
     "",
@@ -35,12 +37,16 @@ function Password() {
 
   const onPasswordHandler = (event) => {
     setPassword(event.target.value);
-    console.log(event.target.value);
-    console.log("why nothing happend");
   };
 
   const onVPasswordHandler = (event) => {
     setVPassword(event.target.value);
+  };
+  const openLoadingModal = () => {
+    setLoadingModalVisible(true);
+  };
+  const closeLoadingModal = () => {
+    setLoadingModalVisible(false);
   };
 
   useEffect(() => {
@@ -80,11 +86,11 @@ function Password() {
   };
 
   const onClickHandler = () => {
+    openLoadingModal();
     dispatch(signUp(store)).then((response) => {
       if (response.type == "signUp_success") {
+        closeLoadingModal();
         history.push("/register/result");
-      } else {
-        console.log(response.payload);
       }
     });
   };
@@ -140,6 +146,14 @@ function Password() {
         </InputDiv>
         <Footer />
       </Container>
+      {loadingModalVisible && (
+        <LoadingModal
+          visible={loadingModalVisible}
+          closable={true}
+          maskClosable={true}
+          onClose={closeLoadingModal}
+        ></LoadingModal>
+      )}
     </>
   );
 }

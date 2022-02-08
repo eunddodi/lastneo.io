@@ -255,11 +255,7 @@ function Question({ store, isDone }) {
           closable={true}
           maskClosable={true}
           onClose={closeLoadingModal}
-        >
-          <LoadingModalContent>
-            <img src={images.itemloading} />
-          </LoadingModalContent>
-        </LoadingModal>
+        ></LoadingModal>
       )}
     </SectionContainer>
   );
@@ -503,23 +499,6 @@ const ModalContent = styled.div`
   `}
 
   }
-`;
-
-const LoadingModalContent = styled.div`
-  height: 100%;
-  text-align: center;
-  justify-content: center;
-  img {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-  }
-  ${customMedia.lessThan("mobile")`
-  img {
-    width: 96px;
-    height: 96px;
-  }
-  `}
 `;
 
 const ItemDescDiv = styled.div`
