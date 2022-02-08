@@ -56,7 +56,9 @@ import yellowalert from "./yellowalert.png";
 import itemloading from "./itemloading.png";
 import nftloading from "./nftloading.png";
 import blackalert from "./blackalert.png";
+import crazybear from "./crazybear.png";
 const images = {
+  crazybear,
   blackalert,
   itemloading,
   nftloading,

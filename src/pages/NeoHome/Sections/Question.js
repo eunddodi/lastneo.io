@@ -33,7 +33,7 @@ function Question({ store, isDone }) {
     setModalVisible(false);
   };
   const scrollModal = () => {
-    dispatch({ type: "set_tab", payload: !tab });
+    dispatch({ type: "set_tab", payload: "character" });
     dispatch({ type: "set_scroll" });
   };
 

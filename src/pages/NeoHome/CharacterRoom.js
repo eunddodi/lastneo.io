@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import Room from "./Sections/Room";
 import Frame from "./Sections/Frame";
@@ -16,13 +16,15 @@ function CharacterRoom({ store, owner }) {
   const dispatch = useDispatch();
   const myRef = useRef();
   const store_neohome = useSelector((store) => store.neohome);
+
   const executeScroll = () =>
     myRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
   useEffect(() => {
     if (store_neohome.scroll) {
+      // scroll이 true라는 건 NeoRoom-Question에서 인격담기를 했다는 뜻이므로 Owner임.
       dispatch(getOwnerInfo(store_neohome.nickname));
       dispatch({ type: "unset_scroll" });
-
       executeScroll();
     }
   }, []);

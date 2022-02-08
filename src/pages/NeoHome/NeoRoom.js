@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import RoomNav from "../../components/RoomNav";
 import RoomDiv from "../../components/RoomDiv";
@@ -7,11 +7,25 @@ import Room from "./Sections/Room";
 import Neo from "./Sections/Neo";
 import GetNft from "./Sections/GetNft";
 import Question from "./Sections/Question";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getOwnerInfo } from "../../_actions/owner_action";
 
 function NeoRoom() {
   const store = useSelector((store) => store.owner);
-  console.log(store);
+  const store_neohome = useSelector((store) => store.neohome);
+  const dispatch = useDispatch();
+  const myRef = useRef();
+  const executeScroll = () =>
+    myRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  useEffect(() => {
+    if (store_neohome.scroll) {
+      // scroll이 true라는 건 NeoRoom-Question에서 인격담기를 했다는 뜻이므로 Owner임.
+      dispatch(getOwnerInfo(store_neohome.nickname));
+      dispatch({ type: "unset_scroll" });
+      executeScroll();
+    }
+  }, []);
 
   return (
     <>
@@ -34,7 +48,7 @@ function NeoRoom() {
         <section name="getNft">
           <GetNft store={store} remain={store.neo_blocks.remain_block} />
         </section>
-        <section name="question">
+        <section name="question" ref={myRef}>
           <Question store={store} isDone={store.is_done} />
         </section>
       </RoomDiv>
