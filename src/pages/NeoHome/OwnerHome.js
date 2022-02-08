@@ -46,7 +46,10 @@ function OwnerHome({ nickname }) {
         {/* 페이지 상세 정보 */}
         <meta property="og:description" content="네오 설명" />
         {/* 페이지 대표 이미지 정보 */}
-        <meta property="og:image" content={store.mini_profile} />
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        />
         {/* 트위터 메타 정보 */}
         <meta
           name="twitter:title"
