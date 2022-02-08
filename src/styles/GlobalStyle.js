@@ -17,12 +17,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-appearance:none;
     }
     html {
         height: 100%;
         color: ${(props) => props.theme.palette.black};
         position: fixed;
+        overflow-x: hidden;
     }
     body {
         position: fixed;
@@ -32,6 +32,8 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.3;
         font-weight: 500;
         font-family: 'Noto Sans KR', sans-serif;
+        overflow-x: hidden;
+
     }
     #root {
         height: 100%;

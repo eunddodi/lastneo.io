@@ -22,6 +22,7 @@ const AppBlock = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   /* background: blue; */
 `;
