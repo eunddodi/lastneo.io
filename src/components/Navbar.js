@@ -11,8 +11,6 @@ import { css } from "styled-components";
 function Navbar({ color, goBack }) {
   const history = useHistory();
   const goBackHandler = () => {
-    // history.goBack();
-    console.log("go back handler");
     history.go(-1);
   };
   const goHomeHandler = () => {
@@ -23,7 +21,6 @@ function Navbar({ color, goBack }) {
     <StyledNav color={color}>
       <div>
         {goBack && (
-          // <GoBackBtn onClick={goBackHandler}>
           <GoBackBtn
             onClick={() => {
               history.goBack();
@@ -50,19 +47,20 @@ const StyledNav = styled.div`
   color: ${(props) => props.theme.palette.pink};
   position: fixed;
   top: 0;
+
   z-index: 100;
-  /* position: relative; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  ${(props) => {
+
+  ${({ theme, color }) => {
+    const selected = theme.palette[color];
     return css`
-      background: ${props.color};
+      background: ${selected};
     `;
   }}
   div {
-    /* background: yellow; */
     height: 100%;
     width: 640px;
     position: relative;

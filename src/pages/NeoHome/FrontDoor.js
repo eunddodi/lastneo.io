@@ -37,7 +37,7 @@ function FrontDoor() {
   };
   return (
     <>
-      <Navbar color="#666666" goBack={false} />
+      <Navbar color="tBlack" goBack={false} />
       <Container>
         <ImgDiv>
           <img src={images.frontdoorhome} />

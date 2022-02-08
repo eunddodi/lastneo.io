@@ -8,6 +8,7 @@ import { useHistory, useLocation } from "react-router";
 import Container from "../../components/Container";
 import FormDiv from "../../components/FormDiv";
 import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 
 // 현관 - 비밀번호 재설정
 // 해당 루트로 접근
@@ -68,35 +69,39 @@ function PhoneNum() {
   }, [type, phoneNum]);
 
   return (
-    <Container>
-      <InputDiv color={msg == 1 || msg == 2 ? "purple" : "pink"}>
-        <h3>전화번호를 입력해주세요</h3>
-        <h4>비밀번호 재설정을 위해 필요해요</h4>
-        <FormDiv>
-          <form>
-            <label>전화번호</label>
-            <input
-              type="text"
-              value={phoneNum}
-              placeholder="01012345678"
-              onChange={onPhoneNumHandler}
-              onBlur={onBlurHandler}
-              maxLength="11"
-            ></input>
-            <p>{messages[msg]}</p>
-          </form>
-        </FormDiv>
-        <Button
-          type="submit"
-          disabled={msg == 2 || !type}
-          color={msg == 2 || !type ? "lightPink" : "pink"}
-          onClick={onSubmitHandler}
-        >
-          다음
-        </Button>
-      </InputDiv>
-      <Footer />
-    </Container>
+    <>
+      <Navbar goBack={true} />
+
+      <Container>
+        <InputDiv color={msg == 1 || msg == 2 ? "purple" : "pink"}>
+          <h3>전화번호를 입력해주세요</h3>
+          <h4>비밀번호 재설정을 위해 필요해요</h4>
+          <FormDiv>
+            <form>
+              <label>전화번호</label>
+              <input
+                type="text"
+                value={phoneNum}
+                placeholder="01012345678"
+                onChange={onPhoneNumHandler}
+                onBlur={onBlurHandler}
+                maxLength="11"
+              ></input>
+              <p>{messages[msg]}</p>
+            </form>
+          </FormDiv>
+          <Button
+            type="submit"
+            disabled={msg == 2 || !type}
+            color={msg == 2 || !type ? "lightPink" : "pink"}
+            onClick={onSubmitHandler}
+          >
+            다음
+          </Button>
+        </InputDiv>
+        <Footer />
+      </Container>
+    </>
   );
 }
 

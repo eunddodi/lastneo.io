@@ -7,7 +7,6 @@ import LandingNav from "./LandingNav";
 import { customMedia } from "../../styles/GlobalStyle";
 import images from "../../assets";
 import Modal from "../../components/modals/ComingSoonModal";
-import ModalContent from "../../components/modals/ModalContent";
 
 const StyledBtn = styled.button`
   width: 142px;
@@ -445,19 +444,7 @@ function LandingPage() {
             onClose={() => {
               setModalOpen(false);
             }}
-          >
-            <ModalContent>
-              <img className="modal-img" src={images.comingsoon} />
-              <h2 className="modal-title">
-                페이지 <span>준비중</span> 입니다..
-              </h2>
-              <p className="modal-desc">
-                스토리 페이지는 현재 업데이트 준비중에 있습니다.
-                <br />
-                빠른 시일내에 준비하여 찾아뵙겠습니다.
-              </p>
-            </ModalContent>
-          </Modal>
+          ></Modal>
         )}
       </Container>
       <Footer />
