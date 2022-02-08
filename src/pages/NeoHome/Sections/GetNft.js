@@ -51,7 +51,7 @@ const StyledButton = styled(Button)`
   margin-top: 20px;
   position: static;
   &:hover {
-    background: ${(props) => props.theme.palette.darkYellow};
+    background: ${(props) => props.theme.palette.darkPurple};
     color: ${(props) => props.theme.palette.grey};
   }
   ${customMedia.lessThan("mobile")`
@@ -62,14 +62,15 @@ const StyledButton = styled(Button)`
 const generateDates = (store) => {
   const arr = [];
   const items = store.items;
-  const today = store.today_datetime;
   items.map((item, idx) => {
-    if (item.created_at == today) {
+    if (item.today_received) {
       arr.push({ idx: idx + 1, date: "오늘" });
     } else {
       arr.push({ idx: idx + 1, date: item.created_at });
     }
   });
+
+  console.log(arr);
   return arr;
 };
 
@@ -82,8 +83,6 @@ function GetNft({ store, remain }) {
       arr.push(false);
     }
   }
-
-  console.log(generateDates(store));
 
   return (
     <SectionContainer color="purple">
@@ -124,7 +123,7 @@ function GetNft({ store, remain }) {
         </p>
       </DescDiv>
       <StyledButton
-        color={remain == 5 ? "purple" : "paleGrey"}
+        color={remain > 4 ? "purple" : "paleGrey"}
         disabled={remain < 5}
       >
         NFT 발급받기
