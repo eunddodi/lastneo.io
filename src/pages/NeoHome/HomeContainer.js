@@ -8,6 +8,7 @@ import { getGuestInfo } from "../../_actions/guest_action";
 import { getOwnerInfo } from "../../_actions/owner_action";
 import { useDispatch, useSelector } from "react-redux";
 import HomeNavbar from "../../components/HomeNavbar";
+import { Helmet } from "react-helmet-async";
 
 function HomeContainer({ match, history }) {
   const dispatch = useDispatch();
@@ -74,6 +75,35 @@ function HomeContainer({ match, history }) {
 
   return (
     <>
+      <Helmet>
+        {/* URL 정보 */}
+        <meta
+          property="og:url"
+          content={`http://3.37.14.91/${match.params.id}`}
+        />
+        {/* title 정보 */}
+        <meta
+          property="og:title"
+          content={`${match.params.id}님의 네오입니다.`}
+        />
+        {/* 페이지 상세 정보 */}
+        <meta property="og:description" content="네오 설명" />
+        {/* 페이지 대표 이미지 정보 */}
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        />
+        {/* 트위터 메타 정보 */}
+        <meta
+          name="twitter:title"
+          content={`${match.params.id}의 네오입니다.`}
+        />
+        <meta name="twitter:description" content="네오 설명" />
+        <meta
+          name="twitter:image"
+          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        />
+      </Helmet>
       <HomeNavbar owner={showOwner} guest={showGuest} />
       {showGuest && <GuestHome nickname={match.params.id} />}
       {showOwner && <OwnerHome nickname={match.params.id} />}

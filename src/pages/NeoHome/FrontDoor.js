@@ -10,6 +10,7 @@ import Footer from "../../components/Footer";
 import { customMedia } from "../../styles/GlobalStyle";
 import Navbar from "../../components/Navbar";
 import Container from "../../components/Container";
+import { Helmet } from "react-helmet-async";
 
 function FrontDoor() {
   const [passwordUI, setPasswordUI] = useState(false);
@@ -37,6 +38,26 @@ function FrontDoor() {
   };
   return (
     <>
+      <Helmet>
+        {/* URL 정보 */}
+        <meta property="og:url" content={`http://3.37.14.91/${nickname}`} />
+        {/* title 정보 */}
+        <meta property="og:title" content={`${nickname}님의 네오입니다.`} />
+        {/* 페이지 상세 정보 */}
+        <meta property="og:description" content="네오 설명" />
+        {/* 페이지 대표 이미지 정보 */}
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        />
+        {/* 트위터 메타 정보 */}
+        <meta name="twitter:title" content={`${nickname}의 네오입니다.`} />
+        <meta name="twitter:description" content="네오 설명" />
+        <meta
+          name="twitter:image"
+          content="https://images.unsplash.com/photo-1643888193686-81c45c445b95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+        />
+      </Helmet>
       <Navbar color="tBlack" goBack={false} />
       <Container>
         <ImgDiv>
