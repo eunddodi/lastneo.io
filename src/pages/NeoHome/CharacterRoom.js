@@ -23,9 +23,10 @@ function CharacterRoom({ store, owner }) {
   useEffect(() => {
     if (store_neohome.scroll) {
       // scroll이 true라는 건 NeoRoom-Question에서 인격담기를 했다는 뜻이므로 Owner임.
-      dispatch(getOwnerInfo(store_neohome.nickname));
-      dispatch({ type: "unset_scroll" });
-      executeScroll();
+      dispatch(getOwnerInfo(store_neohome.nickname)).then((response) => {
+        dispatch({ type: "unset_scroll" });
+        executeScroll();
+      });
     }
   }, []);
   return (

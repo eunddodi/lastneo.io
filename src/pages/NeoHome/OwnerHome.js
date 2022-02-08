@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import HomeDiv from "../../components/HomeDiv";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,19 +19,23 @@ function OwnerHome({ nickname }) {
   const store = useSelector((store) => store.owner);
   const store_neohome = useSelector((store) => store.neohome);
   const currentUrl = document.location.href;
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
 
-  // const [tab, setTab] = useState(true); // true이면 캐릭터 방, false면 네오 방
   const { tab } = useSelector((state) => state.neohome);
+
+  useEffect(() => {
+    setModalVisible(true);
+    dispatch({ type: "set_tab", payload: "character" });
+  }, []);
 
   const closeModal = () => {
     setModalVisible(false);
   };
   const scrollModal = () => {
     dispatch({ type: "set_scroll" });
-    dispatch({ type: "set_tab", payload: "neo" });
     setModalVisible(false);
+    dispatch({ type: "set_tab", payload: "neo" });
   };
 
   const onClickHandler = () => {
