@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SectionContainer from "../../../components/SectionContainer";
 import styled, { css } from "styled-components";
 import images from "../../../assets";
@@ -16,6 +16,7 @@ const unchecked = [images.uc1, images.uc2, images.uc3, images.uc4, images.uc5];
 
 function Question({ store, isDone }) {
   const dispatch = useDispatch();
+  const myRef = useRef();
   const [answers, setAnswers] = useState([0, 0, 0, 0, 0]);
   const [complete, setComplete] = useState(false);
   const [open, setOpen] = useState(false);
@@ -24,7 +25,6 @@ function Question({ store, isDone }) {
   const [itemImg, setItemImg] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [loadingModalVisible, setLoadingModalVisible] = useState(false);
-  const { tab } = useSelector((state) => state.neohome);
 
   const openModal = () => {
     setModalVisible(true);
@@ -47,6 +47,7 @@ function Question({ store, isDone }) {
   useEffect(() => {
     if (!answers.includes(0)) {
       setComplete(true);
+      executeScroll();
     }
   }, [answers]);
 
@@ -84,9 +85,14 @@ function Question({ store, isDone }) {
     setOpen(!open);
     console.log(open);
   };
+
+  const executeScroll = () =>
+    myRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+
   return (
     <SectionContainer color="yellow" question>
       <p>인격담기</p>
+      {/* <button onClick={() => executeScroll()}>메롱</button> */}
       <h3>
         매일 질문 5개에 답변하고
         <br />
@@ -181,13 +187,15 @@ function Question({ store, isDone }) {
           네오에게 인격을 담으면 캐릭터에 표현돼요
         </p>
       </DescDiv>
-      <StyledButton
-        onClick={onSubmitHandler}
-        color={done || !complete ? "paleGrey" : "yellow"}
-        disabled={!complete}
-      >
-        네오에게 인격 담기
-      </StyledButton>
+      <div ref={myRef}>
+        <StyledButton
+          onClick={onSubmitHandler}
+          color={done || !complete ? "paleGrey" : "yellow"}
+          disabled={!complete}
+        >
+          네오에게 인격 담기
+        </StyledButton>
+      </div>
       {/* <button onClick={openLoadingModal}>Open Modal</button> */}
 
       {modalVisible && (
