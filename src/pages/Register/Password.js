@@ -35,6 +35,8 @@ function Password() {
 
   const onPasswordHandler = (event) => {
     setPassword(event.target.value);
+    console.log(event.target.value);
+    console.log("why nothing happend");
   };
 
   const onVPasswordHandler = (event) => {
@@ -85,6 +87,11 @@ function Password() {
         console.log(response.payload);
       }
     });
+  };
+
+  const onFocusHandler = () => {
+    console.log("is it happend?");
+    // window.scrollTo(0, 0);
   };
 
   return (

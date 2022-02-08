@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import favicon from "./assets/favicon.ico";
 import mainImg from "./assets/main_web.png";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const AppBlock = styled.div`
   height: 100%;
@@ -38,6 +39,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
+        <ScrollToTop />
         <HelmetProvider>
           <Helmet>
             <title>LASTNEO</title>

@@ -21,9 +21,10 @@ const GlobalStyle = createGlobalStyle`
     html {
         height: 100%;
         color: ${(props) => props.theme.palette.black};
-
+        position: fixed;
     }
     body {
+        position: fixed;
         height: 100%;
         width: 100%;
         margin: 0;

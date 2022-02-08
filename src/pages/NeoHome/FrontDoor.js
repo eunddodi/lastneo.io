@@ -65,7 +65,7 @@ function Default({ onLockHandler, onBellHandler, nickname }) {
         <br />
         {`lastneo.io/${nickname}`}
       </h4>
-      <h3>초인종을 눌러 안으로 들어가보세요</h3>
+      <h3>초인종을 눌러 들어가보세요</h3>
       <BellBtn onClick={onBellHandler}>
         <img src={bell} />
       </BellBtn>
