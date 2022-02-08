@@ -21,6 +21,7 @@ const AppBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: blue;
 `;
 
 function App() {

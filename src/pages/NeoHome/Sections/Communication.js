@@ -45,8 +45,6 @@ const ShareBtns = styled.div`
 `;
 
 const CopyDiscode = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   .copy,
   .discode {
     .copy-discode-img {
@@ -54,7 +52,7 @@ const CopyDiscode = styled.div`
       height: 50px;
       margin-bottom: 20px;
     }
-    div {
+    .copy-discode-desc {
       margin-bottom: 16px;
       h4 {
         font-size: 20px;
@@ -69,19 +67,19 @@ const CopyDiscode = styled.div`
   }
 
   ${customMedia.lessThan("mobile")`
-  grid-template-columns: 100%;
-  gird-template-rows: repeat(2, 1fr);
   .copy, .discode { 
     position: relative;
     flex-direction: row;
-    margin-bottom: 33px;
+    align-items: center;
+
     .copy-discode-img {
+      margin-bottom: 0;
       width: 40px;
       height: 40px;
       margin-right: 16px;
     }
-    div {
-      margin-right: 
+    .copy-discode-desc {
+      margin-bottom: 0;
       h4 {
         font-size: 16px;
       }
@@ -94,6 +92,19 @@ const CopyDiscode = styled.div`
       right: 0;
     }
   }
+  .copy {
+    order: 1;
+    margin-bottom: 8px;
+  }
+  .modal {
+    order: 2;
+    justify-content: center;
+  }
+  .discode {
+    order: 3;
+    margin-top: 8px;
+  }
+
   `}
 `;
 
@@ -154,7 +165,7 @@ function Communication({ store }) {
       <CopyDiscode>
         <div className="copy">
           <img className="copy-discode-img" src={images.pinkhome} />
-          <div>
+          <div className="copy-discode-desc">
             <h4>{`lastneo.io/${store_neohome.nickname}`}</h4>
             <p>친구를 집으로 초대 해보세요!</p>
           </div>
@@ -169,15 +180,17 @@ function Communication({ store }) {
               복사하기
             </SmallPinkBtn>
           </CopyToClipboard>
-          <MsgModal show={modal} share left mobile />
         </div>
         <div className="discode">
           <img className="copy-discode-img" src={images.pinkbubble} />
-          <div>
+          <div className="copy-discode-desc">
             <h4>디스코드방</h4>
             <p>나와 비슷한 네오들과 소통해보세요!</p>
           </div>
           <SmallPinkBtn>둘러보기</SmallPinkBtn>
+        </div>
+        <div className="modal">
+          <MsgModal show={modal} share mobile />
         </div>
       </CopyDiscode>
     </SectionContainer>

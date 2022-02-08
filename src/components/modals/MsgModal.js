@@ -12,6 +12,7 @@ function MsgModal({ show, share, auth, left, center, mobile }) {
       auth={auth}
       left={left}
       center={center}
+      mobile={mobile}
     >
       <img className="copy-modal-img" src={images.blackalert} />
       {share && (
@@ -27,7 +28,7 @@ function MsgModal({ show, share, auth, left, center, mobile }) {
 export default MsgModal;
 
 const StyledDiv = styled.div`
-  ${({ show, center, left }) => {
+  ${({ show, center, left, mobile }) => {
     if (show && center) {
       return css`
         visibility: visible;
@@ -54,7 +55,7 @@ const StyledDiv = styled.div`
   }}
   flex-direction: row;
   align-items: center;
-  margin-top: 12px;
+  :12px ;
   .copy-modal-img {
     width: 16px;
     height: 16px;
