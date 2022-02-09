@@ -171,13 +171,14 @@ const Section3 = styled.section`
 
   ${customMedia.lessThan("mobile")`
     padding: 96px 24px 0 24px;
-    h2 {
-      margin-bottom: 12px;
-    }
+
     div {
       flex-direction: column;
+      width: 312px;
       align-items: flex-start;
-      margin: 0 0 128px 0;
+      margin: auto;
+      margin-bottom: 128px;
+      // margin: 0 0 128px 0;
       & > .second-img {
         order:3
       }
@@ -198,16 +199,17 @@ const Section3 = styled.section`
       }
     }
     img {
-      width: 327px;
-      height: 327px;
-      margin-top: 80px;
+      width: 312px;
+      height: 312px;
     }
     h2 {
+      margin-bottom: 12px;
       line-height: 48px;
     }
     p {
       font-size: 16px;
       line-height: 26px;
+      margin-bottom: 64px;
     }
   `}
 `;
