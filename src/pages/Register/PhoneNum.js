@@ -130,7 +130,7 @@ function PhoneNum() {
                   </StyledLink>
                   &nbsp;및&nbsp;
                   <StyledLink>
-                    <a href="https://foremost-avocado-334.notion.site/72c7e2423d9d4e75af4a239bfac0494cc">
+                    <a href="https://foremost-avocado-334.notion.site/72c7e2423d9d4e75af4a239bfac0494c">
                       라스트네오 이용약관
                     </a>
                   </StyledLink>
@@ -147,7 +147,7 @@ function PhoneNum() {
                       마케팅 수신
                     </a>
                   </StyledLink>
-                  선택 동의
+                  &nbsp;선택 동의
                 </span>
               </CheckBox>
             </AgrDiv>
