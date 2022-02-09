@@ -90,6 +90,7 @@ const CopyDiscode = styled.div`
 
   ${customMedia.lessThan("mobile")`
   flex-direction: column;
+  flex-wrap: nowrap;
   .copy, .discode { 
     position: relative;
     flex-direction: row;
