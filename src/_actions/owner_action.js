@@ -25,7 +25,6 @@ export const getOwnerInfo = async (nickname) => {
       payload: req.data,
     };
   } catch (e) {
-    console.log(e);
     return {
       type: OWNER_INFO_FAILURE,
       payload: e,
@@ -44,7 +43,6 @@ export const sendBig5 = async (dataTosubmit) => {
       dataTosubmit,
       options
     );
-    console.log(req);
     return {
       type: SEND_BIG5_SUCCESS,
       payload: req.data,

@@ -56,7 +56,6 @@ function Navbar({ color, goBack }) {
   const history = useHistory();
 
   const goHomeHandler = () => {
-    console.log("go home");
     history.push("/");
   };
   return (

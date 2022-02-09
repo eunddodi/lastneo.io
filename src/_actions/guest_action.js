@@ -5,7 +5,6 @@ import { REACT_APP_DB_HOST } from "../keys";
 
 // 페이지 렌더링 시 서버로부터 정보 받아오기
 export const getGuestInfo = async (nickname) => {
-  console.log("게스트 정보 요청");
   try {
     const req = await axios.get(
       REACT_APP_DB_HOST + `/api/v1/neohomeguest/${nickname}`
@@ -15,7 +14,6 @@ export const getGuestInfo = async (nickname) => {
       payload: req.data,
     };
   } catch (e) {
-    console.log(e);
     return {
       type: GUEST_INFO_FAILURE,
       payload: e,

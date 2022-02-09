@@ -127,7 +127,6 @@ function Communication({ store }) {
   };
   const store_neohome = useSelector((store) => store.neohome);
   const [modal, setModal] = useState(false);
-  console.log(store);
   useEffect(() => {
     if (modal) {
       let timer = setTimeout(() => {

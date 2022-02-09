@@ -76,8 +76,6 @@ function PhoneNum() {
     };
     dispatch(confirmMarketing(marketing));
     dispatch(getAuth(body)).then((response) => {
-      console.log("response");
-      console.log(response.payload);
       if (response.type == "auth_req_success") {
         history.push("/register/authnum");
       } else if (

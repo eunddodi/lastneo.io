@@ -13,10 +13,8 @@ export const isOwner = async (data) => {
       body,
       options
     );
-    console.log(req);
     return req;
   } catch (e) {
-    console.log(e);
     return e;
   }
 };
