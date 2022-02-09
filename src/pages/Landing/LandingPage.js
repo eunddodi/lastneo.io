@@ -210,6 +210,7 @@ const Section3 = styled.section`
       font-size: 16px;
       line-height: 26px;
       margin-bottom: 64px;
+      letter-spacing: -0.03em;
     }
   `}
 `;
