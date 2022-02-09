@@ -57,7 +57,9 @@ import itemloading from "./itemloading.png";
 import nftloading from "./nftloading.png";
 import blackalert from "./blackalert.png";
 import crazybear from "./crazybear.png";
+import roomneo from "./roomneo.png";
 const images = {
+  roomneo,
   crazybear,
   blackalert,
   itemloading,

@@ -32,7 +32,7 @@ function CharacterRoom({ store, owner }) {
   return (
     <>
       <div style={{ width: "100%" }} ref={myRef}>
-        <Room store={store} />
+        <Room store={store} character />
       </div>
       <RoomDiv className="room-div">
         <RoomNav>

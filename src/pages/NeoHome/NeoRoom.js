@@ -32,7 +32,7 @@ function NeoRoom() {
 
   return (
     <>
-      <Room store={store} />
+      <Room store={store} neo={true} />
       <RoomDiv>
         <RoomNav>
           <Link to="neo" spy={true} smooth={true}>
