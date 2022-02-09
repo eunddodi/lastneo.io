@@ -32,7 +32,7 @@ const StyledBtn = styled.button`
 `;
 
 const ShadowBtn = styled(StyledBtn)`
-  box-shadow: 0px 3px 6px black;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
 `;
 
 const Container = styled.div`
@@ -45,7 +45,7 @@ const Container = styled.div`
     margin-bottom: 60px;
     font-weight: 900;
     line-height: 92px;
-    text-shadow: 0px 3px 6px black;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
   }
   h2 {
     font-size: 48px;
@@ -55,7 +55,7 @@ const Container = styled.div`
   h3 {
     font-weight: bold;
     font-size: 32px;
-    text-shadow: 0px 3px 6px black;
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
   }
   p {
     font-size: 24px;
