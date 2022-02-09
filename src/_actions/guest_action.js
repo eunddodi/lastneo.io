@@ -7,7 +7,7 @@ import { REACT_APP_DB_HOST } from "../keys";
 export const getGuestInfo = async (nickname) => {
   try {
     const req = await axios.get(
-      REACT_APP_DB_HOST + `/api/v1/neohomeguest/${nickname}`
+      REACT_APP_DB_HOST + `/api/v1/neohomeguest/${nickname}/`
     );
     return {
       type: GUEST_INFO_SUCCESS,

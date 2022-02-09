@@ -239,13 +239,16 @@ const Section4 = styled.section`
     font-size: 20px;
     font-weight: 500;
     background-color: transparent;
-    width: 120px;
     height: 29px;
     color: ${(props) => props.theme.palette.flowerPink};
     img {
       width: 16px;
       height: 16px;
     }
+  }
+  .story-btn {
+    flex-direction: row;
+    align-items: center;
   }
   ${customMedia.lessThan("mobile")`
   padding: 96px 24px;
@@ -427,8 +430,10 @@ function LandingPage() {
               setModalOpen(true);
             }}
           >
-            스토리 보기
-            <img src={images.powderPinkArr} />
+            <div className="story-btn">
+              스토리 보기
+              <img src={images.powderPinkArr} />
+            </div>
           </button>
         </Section4>
         <Section5>
