@@ -7,6 +7,8 @@ import {
   SEND_BIG5_FAILURE,
   EDIT_DESC_SUCCESS,
   EDIT_DESC_FAILURE,
+  CREATE_NFT_SUCCESS,
+  CREATE_NFT_FAILURE,
 } from "./types";
 import { REACT_APP_DB_HOST } from "../keys";
 
@@ -74,6 +76,30 @@ export const sendHomeDesc = async (data) => {
   } catch (e) {
     return {
       type: EDIT_DESC_FAILURE,
+      payload: e,
+    };
+  }
+};
+
+// nft 생성하는 요청을 서버에 전송
+export const createNft = async (data) => {
+  try {
+    const options = {
+      headers: { Authorization: `Token ${localStorage.getItem("token")}` },
+    };
+    const req = await axios.post(
+      REACT_APP_DB_HOST + `/api/v1/nftblock/`,
+      options
+    );
+    console.log(req);
+    return {
+      type: CREATE_NFT_SUCCESS,
+      payload: req.data,
+    };
+  } catch (e) {
+    console.log(e.response.data); // 401 에러 뜸
+    return {
+      type: CREATE_NFT_FAILURE,
       payload: e,
     };
   }

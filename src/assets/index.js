@@ -60,7 +60,9 @@ import crazybear from "./crazybear.png";
 import roomneo from "./roomneo.png";
 import community from "./community.png";
 import neosoulroom from "./neosoulroom.png";
+import shiningnft from "./shiningnft.png";
 const images = {
+  shiningnft,
   neosoulroom,
   community,
   roomneo,

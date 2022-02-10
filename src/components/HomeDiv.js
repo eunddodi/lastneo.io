@@ -7,6 +7,8 @@ const HomeDiv = styled.div`
   align-items: center;
   padding-top: 60px;
   /* padding-bottom: 230px; */
+  overflow-y: scroll;
+
   ${customMedia.lessThan("mobile")`
   padding-top: 56px;
   `}

@@ -34,7 +34,7 @@ function Question({ store, isDone }) {
   };
   const scrollModal = () => {
     dispatch({ type: "set_tab", payload: "character" });
-    dispatch({ type: "set_scroll" });
+    dispatch({ type: "set_scroll", payload: "character_room" });
   };
 
   const openLoadingModal = () => {

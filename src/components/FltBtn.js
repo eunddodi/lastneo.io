@@ -20,6 +20,13 @@ const FltBtn = styled(Button)`
       `;
     }
   }}
+  /* ${({ visible }) => {
+    if (!visible) {
+      return css`
+        display: none;
+      `;
+    }
+  }} */
   ${customMedia.lessThan("mobile")`
   position: sticky;
   width: calc(100vw - 48px);
