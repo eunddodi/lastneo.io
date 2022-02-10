@@ -90,7 +90,6 @@ function Question({ store, isDone }) {
   return (
     <SectionContainer color="yellow" question>
       <p>인격담기</p>
-      {/* <button onClick={() => executeScroll()}>메롱</button> */}
       <h3>
         매일 질문 5개에 답변하고
         <br />
