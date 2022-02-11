@@ -22,12 +22,12 @@ function OwnerHome({ nickname }) {
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useDispatch();
   const tabMenuRef = useRef();
-  const [scrollY, setScrollY] = useState(0);
   const { tab } = useSelector((state) => state.neohome);
 
   const closeModal = () => {
     setModalVisible(false);
   };
+
   const scrollModal = () => {
     dispatch({ type: "set_scroll", payload: "question" });
     setModalVisible(false);
@@ -48,7 +48,7 @@ function OwnerHome({ nickname }) {
   };
 
   useEffect(() => {
-    if (!store.is_done) {
+    if (!store.is_weekend && !store.is_done) {
       setModalVisible(true);
     }
     dispatch({ type: "set_tab", payload: "character" });

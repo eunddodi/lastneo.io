@@ -8,8 +8,9 @@ import { customMedia } from "../../../styles/GlobalStyle";
 import { createNft } from "../../../_actions/owner_action";
 import Modal from "../../../components/modals/NftModal";
 import LoadingModal from "../../../components/modals/LoadingModal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SmallPinkBtn from "../../../components/SmallPinkBtn";
+import { getOwnerInfo } from "../../../_actions/owner_action";
 
 function GetNft({ store, remain }) {
   const arr = [];
@@ -22,6 +23,7 @@ function GetNft({ store, remain }) {
   }
 
   const dispatch = useDispatch();
+  const store_neohome = useSelector((store) => store.neohome);
   const [nftImg, setNftImg] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [loadingModalVisible, setLoadingModalVisible] = useState(false);
@@ -30,7 +32,9 @@ function GetNft({ store, remain }) {
     setModalVisible(true);
   };
   const closeModal = () => {
-    setModalVisible(false);
+    dispatch(getOwnerInfo(store_neohome.nickname)).then(() => {
+      setModalVisible(false);
+    });
   };
   const scrollModal = () => {
     dispatch({ type: "set_tab", payload: "character" });
@@ -54,10 +58,6 @@ function GetNft({ store, remain }) {
         openModal();
       }
     });
-  };
-
-  const onClickHandler = () => {
-    // 서버 응답으로 받은 nft 링크로 연결
   };
 
   return (
@@ -116,16 +116,13 @@ function GetNft({ store, remain }) {
           <ModalContent>
             {/* 아래 정의되어 있음 */}
             <h3>
-              NFT와 캐릭터 액자가
+              캐릭터 액자와 함께
               <br />
-              발급되었어요!
+              NFT가 발급되었어요!
             </h3>
             <img className="nft-logo" src={images.shiningnft} />
             <img className="nft-img" src={nftImg} />
-            <p>액자와 함께 발급된 nft를 확인해보세요</p>
-            <SmallPinkBtn className="nft-btn" onClick={onClickHandler}>
-              보러가기
-            </SmallPinkBtn>
+            <p>발급된 nft 주소가 생성되면 알려드릴게요!</p>
           </ModalContent>
         </Modal>
       )}
@@ -136,6 +133,7 @@ function GetNft({ store, remain }) {
           closable={true}
           maskClosable={true}
           onClose={closeLoadingModal}
+          nft
         ></LoadingModal>
       )}
     </SectionContainer>
@@ -160,8 +158,8 @@ const ModalContent = styled.div`
     margin-bottom: 20px;
   }
   img.nft-img {
-    width: 240px;
-    height: 240px;
+    width: 292px;
+    height: 292px;
     border-radius: 20px;
     margin-bottom: 8px;
   }
@@ -169,27 +167,26 @@ const ModalContent = styled.div`
     text-align: center;
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 16px;
-  }
-  button.nft-btn {
-    margin: auto;
   }
 
   ${customMedia.lessThan("mobile")`
     h3 {
       font-size: 20px;
       margin-bottom: 24px;
+      line-height: 29px;
     }
     img.nft-logo {
       width: 64px;
       height: 64px;
       margin-bottom: 12px;
     }
-    img.nft-img {
+    img.nft-img {    
+      width: 240px;
+      height: 240px;
       margin-bottom: 4px;
     }
     p {
-      margin-bottom: 12px;
+      font-size: 12px;
     }
   `}
 
