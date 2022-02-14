@@ -193,11 +193,9 @@ function Frame({ store, owner }) {
     }
   }, []);
 
-  console.log(arr.length);
-  console.log(center);
-
   const onClickHandler = () => {
     // arr[center].opensea_link 새 창으로 연결
+    window.open(arr[center].opensea_link, "_blank");
   };
 
   const goLeft = () => {
@@ -223,7 +221,7 @@ function Frame({ store, owner }) {
       {arr.length != 0 && (
         <FramesContainer>
           <p className="title">
-            네오 캐릭터의 <span>아이템</span>이에요!
+            네오 캐릭터의 <span>액자</span>에요!
           </p>
           <DescDiv>
             <p className="nft-date">
