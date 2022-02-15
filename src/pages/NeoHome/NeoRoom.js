@@ -36,41 +36,43 @@ function NeoRoom() {
       <Room store={store} neo={true} />
       <RoomDiv>
         <RoomNav>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                neoRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              네오
-            </span>
-          </div>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                nftRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              소유하기
-            </span>
-          </div>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                questionRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              인격 담기
-            </span>
+          <div className="nav-container">
+            <div className="nav-menu">
+              <span
+                onClick={() => {
+                  neoRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+              >
+                네오
+              </span>
+            </div>
+            <div className="nav-menu">
+              <span
+                onClick={() => {
+                  nftRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+              >
+                소유하기
+              </span>
+            </div>
+            <div className="nav-menu">
+              <span
+                onClick={() => {
+                  questionRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+              >
+                인격 담기
+              </span>
+            </div>
           </div>
         </RoomNav>
         <div ref={neoRef}>

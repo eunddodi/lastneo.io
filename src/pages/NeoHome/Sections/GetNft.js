@@ -62,7 +62,7 @@ function GetNft({ store, remain }) {
 
   return (
     <SectionContainer color="purple">
-      <p>소유하기</p>
+      <p className="section-title">소유하기</p>
       <h3>
         네오를 소유할 수 있는
         <br />
@@ -215,12 +215,26 @@ const DescDiv = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    color: ${(props) => props.theme.palette.darkGrey};
+    font-weight: 400;
+    font-size: 14px;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+    }
+  }
+  ${customMedia.lessThan("mobile")`
+  p {
+    font-size: 12px;
+    margin-bottom: 16px;
     img {
       width: 16px;
       height: 16px;
       margin-right: 16px;
     }
   }
+  `}
 `;
 
 const NftDiv = styled.div`
@@ -231,8 +245,16 @@ const NftDiv = styled.div`
     width: 80px;
     height: 80px;
     margin-left: 10px;
-    margin=right: 10px;
+    margin-right: 10px;
   }
+  ${customMedia.lessThan("mobile")`
+  margin-bottom: 48px;
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 0 6px;
+  }
+  `}
 `;
 const StyledButton = styled(Button)`
   margin-top: 20px;
@@ -242,7 +264,7 @@ const StyledButton = styled(Button)`
     color: ${(props) => props.theme.palette.grey};
   }
   ${customMedia.lessThan("mobile")`
-    margin-top: 12px;
+    margin-top: 8px;
   `}
 `;
 

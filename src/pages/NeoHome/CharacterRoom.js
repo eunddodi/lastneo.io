@@ -50,56 +50,58 @@ function CharacterRoom({ store, owner }) {
       </div>
       <RoomDiv className="room-div">
         <RoomNav>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                characterRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              네오 캐릭터
-            </span>
-          </div>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                itemRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              아이템
-            </span>
-          </div>
-          <div className="nav-menu">
-            <span
-              onClick={() => {
-                frameRef.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center",
-                });
-              }}
-            >
-              액자
-            </span>
-          </div>
-          {owner && (
+          <div className="nav-container">
             <div className="nav-menu">
               <span
                 onClick={() => {
-                  communicationRef.current.scrollIntoView({
+                  characterRef.current.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                   });
                 }}
               >
-                소통하기
+                네오 캐릭터
               </span>
             </div>
-          )}
+            <div className="nav-menu">
+              <span
+                onClick={() => {
+                  itemRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+              >
+                아이템
+              </span>
+            </div>
+            <div className="nav-menu">
+              <span
+                onClick={() => {
+                  frameRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                }}
+              >
+                액자
+              </span>
+            </div>
+            {owner && (
+              <div className="nav-menu">
+                <span
+                  onClick={() => {
+                    communicationRef.current.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                  }}
+                >
+                  소통하기
+                </span>
+              </div>
+            )}
+          </div>
         </RoomNav>
         <div ref={characterRef}>
           <Character store={store} />

@@ -120,7 +120,7 @@ function Question({ store }) {
   };
   return (
     <SectionContainer color="yellow" question>
-      <p>인격담기</p>
+      <p className="section-title">인격담기</p>
       <h3>
         매일 질문 5개에 답변하고
         <br />
@@ -144,7 +144,7 @@ function Question({ store }) {
               ];
               return (
                 <SingleQuestion key={i}>
-                  <p>
+                  <p className="question">
                     {i + 1}. {item.question}
                   </p>
                   <div className="btns-wrapper">
@@ -302,8 +302,11 @@ const QuestionsContainer = styled.div`
   margin-bottom: 60px;
   padding: 32px;
   p.main-desc {
+    font-weight: 500;
     font-size: 18px;
     margin-bottom: 32px;
+    color: ${(props) => props.theme.palette.darkGrey};
+
     span {
       color: ${(props) => props.theme.palette.yellow};
     }
@@ -337,7 +340,14 @@ const QuestionsContainer = styled.div`
 `}
 `;
 
-const Questions = styled.div``;
+const Questions = styled.div`
+  width: 100%;
+  border-top: solid 1px ${(props) => props.theme.palette.powderYellow};
+  padding-top: 32px;
+  ${customMedia.lessThan("mobile")`
+  padding-top: 24px;
+  `}
+`;
 const YellowBtns = styled.div`
   flex-direction: row;
   justify-content: center;
@@ -353,14 +363,19 @@ const DescDiv = styled.div`
     display: flex;
     align-items: center;
     img {
-      width: 16px;
-      height: 16px;
-      margin-right: 16px;
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
     }
   }
   ${customMedia.lessThan("mobile")`
   p {
     font-size: 12px;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 16px;
+    }
   }
   `}
 `;
@@ -368,33 +383,37 @@ const DescDiv = styled.div`
 const SingleQuestion = styled.div`
   align-items: center;
   margin-bottom: 32px;
+  text-align: center;
   div.btns-wrapper {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* background: red; */
     span {
       color: ${(props) => props.theme.palette.gray};
       font-weight: 400;
     }
   }
+  span.desc-web {
+    font-size: 14px;
+  }
   div.desc-mobile {
     display: none;
     width: 100%;
     margin-top: 4px;
-    /* background: green; */
     justify-content: space-between;
   }
   button {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     padding: 0px;
   }
-  p {
+  p.question {
     color: ${(props) => props.theme.palette.black};
     margin-bottom: 20px;
     font-size: 18px;
+    font-weight: 500;
   }
   ${customMedia.lessThan("mobile")`
+  margin-bottom: 24px;
     div.btns-wrapper {
       flex-direction: column;
       span {
