@@ -35,6 +35,10 @@ const SectionContainer = styled.div`
   h3 {
     font-size: 20px;
     margin: 24px 0;
+    line-height: 29px;
+  }
+  h3.broad-margin {
+    margin-bottom: 48px;
   }
   `}
 

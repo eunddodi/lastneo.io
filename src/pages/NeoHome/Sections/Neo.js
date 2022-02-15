@@ -71,6 +71,7 @@ const DescSection = styled.section`
   }
   h2 {
     font-size: 24px;
+    margin-bottom: 8px;
   }
   h3 {
     font-size: 20px;
@@ -79,7 +80,15 @@ const DescSection = styled.section`
     font-size: 16px;
     margin-bottom: 48px;
   }
+  span {
+    font-size: 28px;
+  }
   div {
+    margin-top: 24px;
+    img {
+      margin-bottom: 24px;
+      width: 80px;
+    }
     p {
       font-size: 12px;
     }

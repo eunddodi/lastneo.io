@@ -315,7 +315,6 @@ const QuestionsContainer = styled.div`
     font-size: 14px;
     font-weight: 400;
     color: ${(props) => props.theme.palette.darkGrey};
-    margin-bottom: 6px;
   }
   .mobile {
     display: none;
@@ -329,6 +328,7 @@ const QuestionsContainer = styled.div`
   }
   p.main-desc {
     font-size: 16px;
+    margin-bottom: 24px;
   }
   .web {
     display: none;
@@ -371,6 +371,7 @@ const DescDiv = styled.div`
   ${customMedia.lessThan("mobile")`
   p {
     font-size: 12px;
+    margin-bottom: 16px;
     img {
       width: 16px;
       height: 16px;
@@ -499,7 +500,7 @@ const StyledButton = styled(Button)`
     color: ${(props) => props.theme.palette.grey};
   }
   ${customMedia.lessThan("mobile")`
-    margin-top: 12px;
+    margin-top: 8px;
   `}
 `;
 

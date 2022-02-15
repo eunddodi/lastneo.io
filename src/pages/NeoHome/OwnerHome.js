@@ -140,6 +140,7 @@ const TabBtn = styled.button`
   border-radius: 12px 12px 0 0;
   font-size: 18px;
   font-weight: 500;
+
   img {
     width: 20px;
     height: 20px;
@@ -182,7 +183,7 @@ const TabBtn = styled.button`
   }}
 
   ${customMedia.lessThan("mobile")`
-  width: 164px;
+  width: calc((100% - 48px)/2);
   font-size: 16px;
   button {
     padding: 12px 0;

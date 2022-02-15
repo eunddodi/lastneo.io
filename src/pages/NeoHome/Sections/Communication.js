@@ -120,6 +120,7 @@ const CopyDiscode = styled.div`
       margin-bottom: 0;
       h4 {
         font-size: 16px;
+        margin-bottom: 0;
       }
       p {
         font-size: 12px;
