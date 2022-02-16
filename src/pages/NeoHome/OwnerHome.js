@@ -20,6 +20,7 @@ function OwnerHome({ nickname }) {
   const store_neohome = useSelector((store) => store.neohome);
   const currentUrl = document.location.href;
   const [modalVisible, setModalVisible] = useState(false);
+  const [fltBtnVisible, setFltBtnVisible] = useState(false);
   const dispatch = useDispatch();
   const tabMenuRef = useRef();
   const { tab } = useSelector((state) => state.neohome);
@@ -53,6 +54,17 @@ function OwnerHome({ nickname }) {
     }
     dispatch({ type: "set_tab", payload: "character" });
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("wheel", () => {
+      if (tabMenuRef.current.getBoundingClientRect().top < 0) {
+        setFltBtnVisible(true);
+      }
+      if (tabMenuRef.current.getBoundingClientRect().top > 0) {
+        setFltBtnVisible(false);
+      }
+    });
+  });
 
   return (
     <>
@@ -110,7 +122,7 @@ function OwnerHome({ nickname }) {
         ) : (
           <NeoRoom store={store} />
         )}
-        <FltBtn onClick={onClickHandler} color="black">
+        <FltBtn onClick={onClickHandler} color="black" visible={fltBtnVisible}>
           {tab == "character" ? <>네오 방 가기</> : <>캐릭터 방 가기</>}
         </FltBtn>
         <HomeFooter />
