@@ -36,3 +36,4 @@ export const SET_SCROLL = "set_scroll";
 export const UNSET_SCROLL = "unset_scroll";
 export const CREATE_NFT_SUCCESS = "create_nft_success";
 export const CREATE_NFT_FAILURE = "create_nft_failure";
+export const SET_BIG5_ANSWERS = "set_big5_answers";

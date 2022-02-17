@@ -6,6 +6,7 @@ import {
   SET_TAB,
   SET_SCROLL,
   UNSET_SCROLL,
+  SET_BIG5_ANSWERS,
 } from "../_actions/types";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   nickname: "",
   scroll: false,
   scroll_to: "",
+  big5_answers: [],
 };
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -44,6 +46,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         scroll: false,
+      };
+    case SET_BIG5_ANSWERS:
+      return {
+        ...state,
+        big5_answers: action.payload,
       };
     default:
       return state;

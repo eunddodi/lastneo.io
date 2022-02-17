@@ -116,7 +116,7 @@ function PhoneNum() {
           color={msg == 1 || msg == 2 ? "purple" : "pink"}
         >
           <h3>전화번호를 입력해주세요</h3>
-          <h4>네오의 집 주소나 비밀번호를 까먹었을 때 필요해요</h4>
+          <h4>네오의 집 주소나 비밀번호를 찾을 때 필요해요</h4>
           <FormDiv>
             <form onFocus={onFocusHandler} ref={myRef}>
               <label>전화번호</label>

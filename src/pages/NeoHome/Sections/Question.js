@@ -14,6 +14,20 @@ import { getOwnerInfo } from "../../../_actions/owner_action";
 
 const checked = [images.c1, images.c2, images.c3, images.c4, images.c5];
 const unchecked = [images.uc1, images.uc2, images.uc3, images.uc4, images.uc5];
+const checked_mono = [
+  images.c1_mono,
+  images.c2_mono,
+  images.c3_mono,
+  images.c4_mono,
+  images.c5_mono,
+];
+const unchecked_mono = [
+  images.uc1_mono,
+  images.uc2_mono,
+  images.uc3_mono,
+  images.uc4_mono,
+  images.uc5_mono,
+];
 
 function Question({ store }) {
   const dispatch = useDispatch();
@@ -71,8 +85,9 @@ function Question({ store }) {
     openLoadingModal();
     dispatch(sendBig5(body)).then((response) => {
       if (response.type == "send_big5_success") {
-        setDone(true);
         setOpen(false);
+        dispatch({ type: "set_big5_answers", payload: arr });
+        setDone(true);
         if (!response.payload.item_status) {
           setItemName(null);
           setItemImg(null);
@@ -130,7 +145,7 @@ function Question({ store }) {
         <span className="date">{store.today_datetime}</span>
         {descGenerator(store)}
         {open && (
-          <Questions>
+          <Questions color={weekend || done ? "lightGrey" : "paleYellow"}>
             {store.neo_questions.map((item, i) => {
               const arr = [0, 1, 2, 3, 4];
               const sizes = [60, 50, 40, 50, 60];
@@ -159,23 +174,44 @@ function Question({ store }) {
                               newArr[i] = idx + 1;
                               setAnswers(newArr);
                             }}
+                            disabled={done}
                           >
-                            <BtnImg
-                              size={sizes[idx]}
-                              mSize={mSizes[idx]}
-                              color={colors[idx]}
-                              key={idx}
-                              checked={answers[i] == idx + 1}
-                            >
-                              <img
-                                src={
-                                  answers[i] == idx + 1
-                                    ? checked[idx]
-                                    : unchecked[idx]
-                                }
-                              />
-                              <span></span>
-                            </BtnImg>
+                            {!done ? (
+                              <BtnImg
+                                size={sizes[idx]}
+                                mSize={mSizes[idx]}
+                                color={colors[idx]}
+                                key={idx}
+                                checked={answers[i] == idx + 1}
+                                done={false}
+                              >
+                                <img
+                                  src={
+                                    answers[i] == idx + 1
+                                      ? checked[idx]
+                                      : unchecked[idx]
+                                  }
+                                />
+                                <span></span>
+                              </BtnImg>
+                            ) : (
+                              <BtnImg
+                                size={sizes[idx]}
+                                mSize={mSizes[idx]}
+                                key={idx}
+                                done={true}
+                              >
+                                <img
+                                  src={
+                                    store_neohome.big5_answers[i].result ==
+                                    idx + 1
+                                      ? checked_mono[idx]
+                                      : unchecked_mono[idx]
+                                  }
+                                />
+                                <span></span>
+                              </BtnImg>
+                            )}
                           </button>
                         );
                       })}
@@ -191,12 +227,8 @@ function Question({ store }) {
             })}
           </Questions>
         )}
-        <ToggleBtn onClick={toggleHandler} disabled={weekend || done}>
-          <img
-            src={
-              weekend || done || open ? images.toggleclose : images.toggleopen
-            }
-          />
+        <ToggleBtn onClick={toggleHandler} disabled={weekend}>
+          <img src={weekend || open ? images.toggleclose : images.toggleopen} />
         </ToggleBtn>
       </QuestionsContainer>
       <DescDiv>
@@ -342,7 +374,12 @@ const QuestionsContainer = styled.div`
 
 const Questions = styled.div`
   width: 100%;
-  border-top: solid 1px ${(props) => props.theme.palette.powderYellow};
+  ${(props) => {
+    const selected = props.theme.palette[props.color];
+    return css`
+      border-top: solid 1px ${selected};
+    `;
+  }}
   padding-top: 32px;
   ${customMedia.lessThan("mobile")`
   padding-top: 24px;
@@ -459,8 +496,8 @@ const BtnImg = styled.div`
     width: ${(props) => props.size}px;
     height: ${(props) => props.size}px;
   }
-  ${({ checked }) => {
-    if (!checked) {
+  ${({ checked, done }) => {
+    if (!checked && !done) {
       return css`
         &:hover {
           img {
