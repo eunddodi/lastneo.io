@@ -175,7 +175,9 @@ function Question({ store }) {
                               newArr[i] = idx + 1;
                               setAnswers(newArr);
                             }}
-                            disabled={done}
+                            disabled={
+                              done || store_neohome.big5_answers.length == 0
+                            }
                           >
                             {!done ? (
                               <BtnImg
@@ -228,7 +230,7 @@ function Question({ store }) {
             })}
           </Questions>
         )}
-        <ToggleBtn onClick={toggleHandler} disabled={weekend}>
+        <ToggleBtn onClick={toggleHandler} disabled={weekend || done}>
           <img src={weekend || open ? images.toggleclose : images.toggleopen} />
         </ToggleBtn>
       </QuestionsContainer>
