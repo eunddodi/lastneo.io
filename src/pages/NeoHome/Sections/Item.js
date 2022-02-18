@@ -74,11 +74,12 @@ const GridContainer = styled.div`
     padding-top: 24px;
     gap: 12px 24px;
     grid-gap: 12px 24px;
-  `}
+  `}/* background: black; */
 `;
 
 const GridItem = styled.div`
   position: relative;
+  /* background: lavender; */
   .item-wrapper {
     position: relative;
     width: 100%;
