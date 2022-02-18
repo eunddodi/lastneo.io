@@ -4,13 +4,14 @@ import SectionContainer from "../../../components/SectionContainer";
 import styled, { css } from "styled-components";
 import images from "../../../assets";
 import Button from "../../../components/Button";
-import { sendBig5 } from "../../../_actions/owner_action";
+import { sendBig5 } from "../../../modules/owner";
 import { useDispatch } from "react-redux";
 import { customMedia } from "../../../styles/GlobalStyle";
 import { useSelector } from "react-redux";
 import Modal from "../../../components/modals/Modal";
 import LoadingModal from "../../../components/modals/LoadingModal";
-import { getOwnerInfo } from "../../../_actions/owner_action";
+import { getOwnerInfo } from "../../../modules/owner";
+import { setBig5Answers, setScroll, setTab } from "../../../modules/neohome";
 
 const checked = [images.c1, images.c2, images.c3, images.c4, images.c5];
 const unchecked = [images.uc1, images.uc2, images.uc3, images.uc4, images.uc5];
@@ -54,8 +55,8 @@ function Question({ store }) {
   };
   const scrollModal = () => {
     // 아이템 지급 모달 - '캐릭터 보기' => Charater.js useEffect에서 scroll = true면 주인정보 새로 요청
-    dispatch({ type: "set_tab", payload: "character" });
-    dispatch({ type: "set_scroll", payload: "character_room" });
+    dispatch(setTab("character"));
+    dispatch(setScroll("character_room"));
   };
 
   const openLoadingModal = () => {
@@ -84,9 +85,9 @@ function Question({ store }) {
     };
     openLoadingModal();
     dispatch(sendBig5(body)).then((response) => {
-      if (response.type == "send_big5_success") {
+      if (response.type == "owner/SEND_BIG5_SUCCESS") {
         setOpen(false);
-        dispatch({ type: "set_big5_answers", payload: arr });
+        dispatch(setBig5Answers(arr));
         setDone(true);
         if (!response.payload.item_status) {
           setItemName(null);

@@ -11,7 +11,8 @@ import HomeNav from "../../components/HomeNav";
 import FltBtn from "../../components/FltBtn";
 import { customMedia } from "../../styles/GlobalStyle";
 import images from "../../assets";
-import { getOwnerInfo } from "../../_actions/owner_action";
+import { getOwnerInfo } from "../../modules/owner";
+import { setTab, setScroll } from "../../modules/neohome";
 import Modal from "../../components/modals/WelcomeModal";
 import { Helmet } from "react-helmet-async";
 
@@ -30,19 +31,19 @@ function OwnerHome({ nickname }) {
   };
 
   const scrollModal = () => {
-    dispatch({ type: "set_scroll", payload: "question" });
+    dispatch(setScroll("question"));
     setModalVisible(false);
-    dispatch({ type: "set_tab", payload: "neo" });
+    dispatch(setTab("neo"));
   };
 
   const onClickHandler = () => {
     dispatch(getOwnerInfo(nickname)).then((response) => {
       // 캐릭터방-네오방 이동할 때마다 서버에 요청해서 정보 업데이트
-      if (response.type == "owner_info_success") {
+      if (response.type == "owner/OWNER_INFO_SUCCESS") {
         if (tab == "character") {
-          dispatch({ type: "set_tab", payload: "neo" });
+          dispatch(setTab("neo"));
         } else {
-          dispatch({ type: "set_tab", payload: "character" });
+          dispatch(setTab("character"));
         }
       }
     });
@@ -52,7 +53,7 @@ function OwnerHome({ nickname }) {
     if (!store.is_weekend && !store.is_done) {
       setModalVisible(true);
     }
-    dispatch({ type: "set_tab", payload: "character" });
+    dispatch(setTab("character"));
   }, []);
 
   useEffect(() => {
@@ -94,7 +95,7 @@ function OwnerHome({ nickname }) {
           <TabBtn
             className="tab-char"
             onClick={() => {
-              dispatch({ type: "set_tab", payload: "character" });
+              dispatch(setTab("character"));
             }}
             color={tab == "character" ? "black" : "white"}
             textColor={tab == "character" ? "white" : "gray"}
@@ -107,7 +108,7 @@ function OwnerHome({ nickname }) {
           <TabBtn
             className="tab-neo"
             onClick={() => {
-              dispatch({ type: "set_tab", payload: "neo" });
+              dispatch(setTab("neo"));
             }}
             color={tab == "neo" ? "black" : "white"}
             textColor={tab == "neo" ? "white" : "gray"}

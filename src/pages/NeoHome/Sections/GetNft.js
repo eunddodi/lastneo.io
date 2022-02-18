@@ -5,12 +5,11 @@ import styled from "styled-components";
 import images from "../../../assets";
 import Button from "../../../components/Button";
 import { customMedia } from "../../../styles/GlobalStyle";
-import { createNft } from "../../../_actions/owner_action";
+import { createNft, getOwnerInfo } from "../../../modules/owner";
 import Modal from "../../../components/modals/NftModal";
 import LoadingModal from "../../../components/modals/LoadingModal";
 import { useDispatch, useSelector } from "react-redux";
-import SmallPinkBtn from "../../../components/SmallPinkBtn";
-import { getOwnerInfo } from "../../../_actions/owner_action";
+import { setTab, setScroll } from "../../../modules/neohome";
 
 function GetNft({ store, remain }) {
   const arr = [];
@@ -37,8 +36,8 @@ function GetNft({ store, remain }) {
     });
   };
   const scrollModal = () => {
-    dispatch({ type: "set_tab", payload: "character" });
-    dispatch({ type: "set_scroll", payload: "frame" });
+    dispatch(setTab("character"));
+    dispatch(setScroll("frame"));
   };
 
   const openLoadingModal = () => {
@@ -52,7 +51,7 @@ function GetNft({ store, remain }) {
     e.preventDefault();
     openLoadingModal();
     dispatch(createNft()).then((response) => {
-      if (response.type == "create_nft_success") {
+      if (response.type == "owner/CREATE_NFT_SUCCESS") {
         setNftImg(response.payload.nft_image);
         closeLoadingModal();
         openModal();

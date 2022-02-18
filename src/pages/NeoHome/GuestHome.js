@@ -14,7 +14,6 @@ import { useHistory, useLocation } from "react-router";
 import { Helmet } from "react-helmet-async";
 const GuestHome = () => {
   const history2 = useHistory();
-  const [fltBtnVisible, setFltBtnVisible] = useState(false);
   const tabMenuRef = useRef();
 
   const store = useSelector((store) => store.guest);
@@ -44,7 +43,7 @@ const GuestHome = () => {
           </TabBtn>
         </HomeNav>
         <CharacterRoom store={store} owner={false} />
-        <FltBtn color="pink" onClick={onClickHandler} visible={fltBtnVisible}>
+        <FltBtn color="pink" onClick={onClickHandler} visible={true}>
           내 네오 만들기
         </FltBtn>
         <HomeFooter />

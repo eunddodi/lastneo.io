@@ -8,7 +8,8 @@ import Neo from "./Sections/Neo";
 import GetNft from "./Sections/GetNft";
 import Question from "./Sections/Question";
 import { useSelector, useDispatch } from "react-redux";
-import { getOwnerInfo } from "../../_actions/owner_action";
+import { getOwnerInfo } from "../../modules/owner";
+import { unsetScroll } from "../../modules/neohome";
 
 function NeoRoom() {
   const store = useSelector((store) => store.owner);
@@ -26,7 +27,7 @@ function NeoRoom() {
       if (store_neohome.scroll) {
         // scroll이 true라는 건 NeoRoom-Question에서 인격담기를 했다는 뜻이므로 Owner임.
         executeScroll();
-        dispatch({ type: "unset_scroll" });
+        dispatch(unsetScroll());
       }
     });
   }, []);
