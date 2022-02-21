@@ -175,9 +175,7 @@ function Question({ store }) {
                               newArr[i] = idx + 1;
                               setAnswers(newArr);
                             }}
-                            disabled={
-                              done || store_neohome.big5_answers.length == 0
-                            }
+                            disabled={done}
                           >
                             {!done ? (
                               <BtnImg
