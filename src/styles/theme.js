@@ -18,6 +18,7 @@ const theme = {
     coolPurple: "#B4A7FF",
     purple: "#5d00ff",
     darkPurple: "#3600A3",
+    palePurple: "#d5cfff",
     lavender: "#8467ff",
     white: "#ffffff",
     coolWhite: "#F7F8FA",
