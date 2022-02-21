@@ -106,13 +106,6 @@ export const unsetScroll = () => {
   };
 };
 
-export const setBig5Answers = (arr) => {
-  return {
-    type: SET_BIG5_ANSWERS,
-    payload: arr,
-  };
-};
-
 const initialState = {
   tab: "character",
   nickname: "",
@@ -143,11 +136,6 @@ export default function neohome(state = initialState, action) {
       return {
         ...state,
         scroll: false,
-      };
-    case SET_BIG5_ANSWERS:
-      return {
-        ...state,
-        big5_answers: action.payload,
       };
     default:
       return state;

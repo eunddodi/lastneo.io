@@ -84,21 +84,18 @@ function Question({ store }) {
       questions: arr,
     };
     openLoadingModal();
-    dispatch(sendBig5(body)).then((response) => {
-      if (response.type == "owner/SEND_BIG5_SUCCESS") {
-        setOpen(false);
-        dispatch(setBig5Answers(arr));
-        setDone(true);
-        if (!response.payload.item_status) {
-          setItemName(null);
-          setItemImg(null);
-        } else {
-          setItemName(response.payload.item_name);
-          setItemImg(response.payload.item_image);
-        }
-        closeLoadingModal();
-        openModal();
+    sendBig5(body).then((response) => {
+      setOpen(false);
+      setDone(true);
+      if (!response.payload.item_status) {
+        setItemName(null);
+        setItemImg(null);
+      } else {
+        setItemName(response.payload.item_name);
+        setItemImg(response.payload.item_image);
       }
+      closeLoadingModal();
+      openModal();
     });
   };
 

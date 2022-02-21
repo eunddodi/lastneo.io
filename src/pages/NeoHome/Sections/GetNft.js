@@ -50,12 +50,10 @@ function GetNft({ store, remain }) {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     openLoadingModal();
-    dispatch(createNft()).then((response) => {
-      if (response.type == "owner/CREATE_NFT_SUCCESS") {
-        setNftImg(response.payload.nft_image);
-        closeLoadingModal();
-        openModal();
-      }
+    createNft().then((response) => {
+      setNftImg(response.payload.nft_image);
+      closeLoadingModal();
+      openModal();
     });
   };
 
