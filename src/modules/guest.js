@@ -48,8 +48,8 @@ export default function (state = initialState, action) {
       };
     case GUEST_INFO_FAILURE:
       return {
-        loading: false,
         ...state,
+        loading: false,
         error: action.error,
       };
     default:
