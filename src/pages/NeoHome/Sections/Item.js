@@ -15,9 +15,6 @@ function Item({ store }) {
   const [gridAmount, setGridAmount] = useState(
     3 * Math.ceil(localstore.length / 3)
   );
-
-  console.log(itemAmount);
-  console.log(gridAmount);
   const { items, newItem } = generateCell(localstore);
   const [modal, setModal] = useState(newItem);
   return (
