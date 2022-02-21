@@ -2,6 +2,7 @@
 import axios from "axios";
 import { REACT_APP_DB_HOST } from "../keys";
 
+const OWNER_INFO_PENDING = "owner/OWNER_INFO_PENDING";
 const OWNER_INFO_SUCCESS = "owner/OWNER_INFO_SUCCESS";
 const OWNER_INFO_FAILURE = "owner/OWNER_INFO_FAILURE";
 
@@ -26,6 +27,18 @@ export const getOwnerInfo = async (nickname) => {
     };
   }
 };
+
+export default function owner(state = {}, action) {
+  switch (action.type) {
+    case OWNER_INFO_SUCCESS:
+      const data = action.payload;
+      return data;
+    case OWNER_INFO_FAILURE:
+      return state;
+    default:
+      return state;
+  }
+}
 
 // 사용자가 작성한 big5 질문에 대한 응답을 서버에 전송
 export const sendBig5 = async (dataTosubmit) => {
@@ -91,15 +104,3 @@ export const createNft = async (data) => {
     };
   }
 };
-
-export default function owner(state = {}, action) {
-  switch (action.type) {
-    case OWNER_INFO_SUCCESS:
-      const data = action.payload;
-      return data;
-    case OWNER_INFO_FAILURE:
-      return state;
-    default:
-      return state;
-  }
-}

@@ -8,8 +8,6 @@ import { customMedia } from "../../../styles/GlobalStyle";
 import { sendHomeDesc } from "../../../modules/owner";
 
 function Profile({ store, owner, nickname }) {
-  const dispatch = useDispatch();
-
   let originalDesc = "";
   if (owner && store.description == "나를 담는 단 하나의 방법 '네오'") {
     originalDesc = "집으로 초대한 친구에게 네오를 소개해주세요";
