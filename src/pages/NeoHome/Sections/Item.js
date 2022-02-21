@@ -11,6 +11,13 @@ import images from "../../../assets";
 
 function Item({ store }) {
   const localstore = store.items;
+  const [itemAmount, setItemAmount] = useState(localstore.length);
+  const [gridAmount, setGridAmount] = useState(
+    3 * Math.ceil(localstore.length / 3)
+  );
+
+  console.log(itemAmount);
+  console.log(gridAmount);
   const { items, newItem } = generateCell(localstore);
   const [modal, setModal] = useState(newItem);
   return (
@@ -39,10 +46,10 @@ function Item({ store }) {
           네오 캐릭터의 <span>아이템</span>이에요!
         </p>
         <GridContainer>
-          {[...Array(6)].map((e, i) => {
+          {[...Array(gridAmount)].map((e, i) => {
             return (
               items[i] || (
-                <GridItem>
+                <GridItem key={i}>
                   <div className="item-wrapper">
                     <img className="item-bg" src={images.itembg} />
                     <img className="item-img" src={images.emptycell} />
@@ -67,14 +74,15 @@ const GridContainer = styled.div`
   padding-top: 32px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-auto-rows: auto;
   gap: 16px 30px;
   grid-gap: 16px 30px;
   ${customMedia.lessThan("mobile")`
     padding-top: 24px;
     gap: 12px 24px;
     grid-gap: 12px 24px;
-  `}/* background: black; */
+  `};
+  /* background: black; */
 `;
 
 const GridItem = styled.div`
