@@ -15,7 +15,6 @@ function Modal({
   children,
   noItem,
 }) {
-  console.log(noItem);
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);

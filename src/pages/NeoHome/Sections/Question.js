@@ -53,7 +53,9 @@ function Question({ store }) {
     setModalVisible(true);
   };
   const closeModal = () => {
-    setModalVisible(false);
+    dispatch(getOwnerInfo(store_neohome.nickname)).then(() => {
+      setModalVisible(false);
+    });
   };
   const showNextModal = () => {
     setModalVisible(false);
@@ -155,89 +157,14 @@ function Question({ store }) {
         <span className="date">{store.today_datetime}</span>
         {descGenerator(store)}
         {open && (
-          <Questions color={weekend || done ? "lightGrey" : "paleYellow"}>
-            {store.neo_questions.map((item, i) => {
-              const arr = [0, 1, 2, 3, 4];
-              const sizes = [60, 50, 40, 50, 60];
-              const mSizes = [48, 40, 32, 40, 48];
-              const colors = [
-                "#FFF0C1",
-                "#FFE194",
-                "#FFC859",
-                "#FFAA00",
-                "#CC7E00",
-              ];
-              return (
-                <SingleQuestion key={i}>
-                  <p className="question">
-                    {i + 1}. {item.question}
-                  </p>
-                  <div className="btns-wrapper">
-                    <span className="desc-web">전혀 아니다</span>
-                    <YellowBtns>
-                      {arr.map((idx) => {
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                              const newArr = [...answers];
-                              newArr[i] = idx + 1;
-                              setAnswers(newArr);
-                            }}
-                            disabled={done}
-                          >
-                            {!done ? (
-                              <BtnImg
-                                size={sizes[idx]}
-                                mSize={mSizes[idx]}
-                                color={colors[idx]}
-                                key={idx}
-                                checked={answers[i] == idx + 1}
-                                done={false}
-                              >
-                                <img
-                                  src={
-                                    answers[i] == idx + 1
-                                      ? checked[idx]
-                                      : unchecked[idx]
-                                  }
-                                />
-                                <span></span>
-                              </BtnImg>
-                            ) : (
-                              <BtnImg
-                                size={sizes[idx]}
-                                mSize={mSizes[idx]}
-                                key={idx}
-                                done={true}
-                              >
-                                <img
-                                  src={
-                                    store_neohome.big5_answers[i].result ==
-                                    idx + 1
-                                      ? checked_mono[idx]
-                                      : unchecked_mono[idx]
-                                  }
-                                />
-                                <span></span>
-                              </BtnImg>
-                            )}
-                          </button>
-                        );
-                      })}
-                    </YellowBtns>
-                    <span className="desc-web">매우 그렇다</span>
-                    <div className="desc-mobile">
-                      <span>전혀 아니다</span>
-                      <span>매우 그렇다</span>
-                    </div>
-                  </div>
-                </SingleQuestion>
-              );
-            })}
-          </Questions>
+          <Questions
+            questions={!done ? store.neo_questions : store.last_neo_questions}
+            answers={answers}
+            setAnswers={setAnswers}
+            done={done}
+          />
         )}
-        <ToggleBtn onClick={toggleHandler} disabled={weekend || done}>
+        <ToggleBtn onClick={toggleHandler} disabled={weekend}>
           <img src={weekend || open ? images.toggleclose : images.toggleopen} />
         </ToggleBtn>
       </QuestionsContainer>
@@ -350,6 +277,93 @@ function Question({ store }) {
 2;
 export default Question;
 
+function Questions({ questions, answers, setAnswers, done }) {
+  const arr = [0, 1, 2, 3, 4];
+  const sizes = [60, 50, 40, 50, 60];
+  const mSizes = [48, 40, 32, 40, 48];
+  const colors = ["#FFF0C1", "#FFE194", "#FFC859", "#FFAA00", "#CC7E00"];
+  return (
+    <InnerContainer color={done ? "paleGrey" : "powderYellow"}>
+      {questions.map((item, i) => {
+        return (
+          <SingleQuestion key={i}>
+            <p className="question">
+              {i + 1}. {item.question}
+            </p>
+            <div className="btns-wrapper">
+              <span className="desc-web">전혀 아니다</span>
+              {!done ? (
+                <YellowBtns>
+                  {arr.map((idx) => {
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          const newArr = [...answers];
+                          newArr[i] = idx + 1;
+                          setAnswers(newArr);
+                        }}
+                      >
+                        <BtnImg
+                          size={sizes[idx]}
+                          mSize={mSizes[idx]}
+                          color={colors[idx]}
+                          key={idx}
+                          checked={answers[i] == idx + 1}
+                          done={done}
+                        >
+                          <img
+                            src={
+                              answers[i] == idx + 1
+                                ? checked[idx]
+                                : unchecked[idx]
+                            }
+                          />
+                          <span></span>
+                        </BtnImg>
+                      </button>
+                    );
+                  })}
+                </YellowBtns>
+              ) : (
+                <MonoBtns>
+                  {arr.map((idx) => {
+                    return (
+                      <button key={idx} disabled={true}>
+                        <BtnImg
+                          size={sizes[idx]}
+                          mSize={mSizes[idx]}
+                          key={idx}
+                          checked={item.result[i] == idx + 1}
+                          done={true}
+                        >
+                          <img
+                            src={
+                              item.result == idx + 1
+                                ? checked_mono[idx]
+                                : unchecked_mono[idx]
+                            }
+                          />
+                          <span></span>
+                        </BtnImg>
+                      </button>
+                    );
+                  })}
+                </MonoBtns>
+              )}
+              <span className="desc-web">매우 그렇다</span>
+              <div className="desc-mobile">
+                <span>전혀 아니다</span>
+                <span>매우 그렇다</span>
+              </div>
+            </div>
+          </SingleQuestion>
+        );
+      })}
+    </InnerContainer>
+  );
+}
+
 const QuestionsContainer = styled.div`
   ${(props) => {
     const selected = props.theme.palette[props.color];
@@ -402,7 +416,7 @@ const QuestionsContainer = styled.div`
 `}
 `;
 
-const Questions = styled.div`
+const InnerContainer = styled.div`
   width: 100%;
   ${(props) => {
     const selected = props.theme.palette[props.color];
@@ -421,6 +435,11 @@ const YellowBtns = styled.div`
   align-items: center;
 `;
 
+const MonoBtns = styled.div`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 const DescDiv = styled.div`
   p {
     margin-bottom: 20px;
@@ -537,6 +556,11 @@ const BtnImg = styled.div`
             display: block;
           }
         }
+      `;
+    }
+    if (done) {
+      return css`
+        cursor: auto;
       `;
     }
   }}

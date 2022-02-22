@@ -42,6 +42,7 @@ export default function owner(state = {}, action) {
 
 // 사용자가 작성한 big5 질문에 대한 응답을 서버에 전송
 export const sendBig5 = async (dataTosubmit) => {
+  console.log(dataTosubmit);
   try {
     const options = {
       headers: { Authorization: `Token ${localStorage.getItem("token")}` },
