@@ -2,7 +2,6 @@
 import axios from "axios";
 import { REACT_APP_DB_HOST } from "../keys";
 
-const OWNER_INFO_PENDING = "owner/OWNER_INFO_PENDING";
 const OWNER_INFO_SUCCESS = "owner/OWNER_INFO_SUCCESS";
 const OWNER_INFO_FAILURE = "owner/OWNER_INFO_FAILURE";
 
