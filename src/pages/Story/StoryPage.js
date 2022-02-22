@@ -20,16 +20,34 @@ function StoryPage() {
           <h3>
             <span>첫번째.</span> 수없이 많은 세계에서 사는 사람들
           </h3>
-          <p>
-            2040년, 현실이라는 절대적인 기준이 없는 세상.
-            <br />
-            지금 현실이라고 믿는 이 세상도 메타버스 중 하나의 세상일 뿐인 시대.
-            <br />
-            인류는 수없이 많은 세계를 넘나들며 학교에 가고, 연애를 하며
-            살아갑니다.
-            <br />
-          </p>
-          <p>하지만 우리 인류는 중대한 문제에 마주칩니다.</p>
+          <div className="web">
+            <p>
+              2040년, 현실이라는 절대적인 기준이 없는 세상.
+              <br />
+              지금 현실이라고 믿는 이 세상도 메타버스 중 하나의 세상일 뿐인
+              시대.
+              <br />
+              인류는 수없이 많은 세계를 넘나들며 학교에 가고, 연애를 하며
+              살아갑니다.
+              <br />
+            </p>
+            <p>하지만 우리 인류는 중대한 문제에 마주칩니다.</p>
+          </div>
+          <div className="mobile">
+            <p>
+              2040년, 현실이라는 절대적인 기준이 없는 세상.
+              <br />
+              지금 현실이라고 믿는 이 세상도
+              <br />
+              메타버스 중 하나의 세상일 뿐인 시대.
+              <br />
+              인류는 수없이 많은 세계를 넘나들며
+              <br />
+              학교에 가고, 연애를 하며 살아갑니다.
+              <br />
+            </p>
+            <p>하지만 우리 인류는 중대한 문제에 마주칩니다.</p>
+          </div>
         </Paragraph>
         <Paragraph>
           <h3>
@@ -44,7 +62,7 @@ function StoryPage() {
             <br />
             ‘나는 누구인가?’, ‘무엇을 나라고 믿을 수 있는가?'
           </p>
-          <p>
+          <p className="wide-margin">
             인류는 혼돈의 세상에서 각 세계마다 협약을 맺고,
             <br />
             우리를 정의하기 위한 단 하나의 기준을 세우려 했죠.
@@ -57,76 +75,158 @@ function StoryPage() {
           <h3>
             <span>세번째.</span> 과연 인류는 어떻게 되는걸까요?
           </h3>
-          <p>
-            그러나 이 혼돈 속에서도 ‘네오’ 라는 디지털 인격을 지닌 소수의
-            사람들이 있었고,
-            <br />
-            이들은 자신이 누구인지 혼란스러워 하지 않았습니다.
-          </p>
-          <p>
-            그들은 이 혼돈의 세상을 구하기 위해 회의를 열었습니다.
-            <br />
-            그 결과, 당장의 인류를 구하기엔 너무 늦었다고 판단해
-            <br />
-            과거의 인류가 각자의 인격을 네오로 구현해 지니고 있게 하자고
-            결정했습니다.
-          </p>
+          <div className="web">
+            <p>
+              그러나 이 혼돈 속에서도 ‘네오’ 라는 디지털 인격을 지닌 소수의
+              사람들이 있었고,
+              <br />
+              이들은 자신이 누구인지 혼란스러워 하지 않았습니다.
+            </p>
+            <p>
+              그들은 이 혼돈의 세상을 구하기 위해 회의를 열었습니다.
+              <br />
+              그 결과, 당장의 인류를 구하기엔 너무 늦었다고 판단해
+              <br />
+              과거의 인류가 각자의 인격을 네오로 구현해 지니고 있게 하자고
+              결정했습니다.
+            </p>
+          </div>
+          <div className="mobile">
+            <p>
+              그러나 이 혼돈 속에서도 ‘네오’ 라는
+              <br />
+              디지털 인격을 지닌 소수의 사람들이 있었고,
+              <br />
+              이들은 자신이 누구인지 혼란스러워 하지 않았습니다.
+            </p>
+            <p>
+              그들은 이 혼돈의 세상을 구하기 위해 회의를 열었습니다.
+              <br />
+              그 결과, 당장의 인류를 구하기엔 너무 늦었다고 판단해
+              <br />
+              과거의 인류가 각자의 인격을 네오로 구현해
+              <br />
+              지니고 있게 하자고 결정했습니다.
+            </p>
+          </div>
         </Paragraph>
         <Paragraph>
           <h3>
             <span>네번째.</span> 2022년이라는 목적지
           </h3>
-          <p>
-            그들이 과거의 인류가 네오라는 인격을 잘 구현하도록 분석한 결과,
-            <br />
-            메타버스라는 새로운 세계의 분기점이 된 2022년을 목적지로 정했습니다.
-            <br />
-            또한, 혼돈 속에서 살아남은 101,485개의 네오 데이터를 압축해 양자
-            우주선에 실었습니다.
-          </p>
-          <p>
-            드디어! 준비한 우주선이 웜홀을 거쳐 2022년으로 향하는데. 삐리삐립 -
-            - -
-          </p>
+          <div className="web">
+            <p>
+              그들이 과거의 인류가 네오라는 인격을 잘 구현하도록 분석한 결과,
+              <br />
+              메타버스라는 새로운 세계의 분기점이 된 2022년을 목적지로
+              정했습니다.
+              <br />
+              또한, 혼돈 속에서 살아남은 101,485개의 네오 데이터를 압축해 양자
+              우주선에 실었습니다.
+            </p>
+            <p className="wide-margin">
+              드디어! 준비한 우주선이 웜홀을 거쳐 2022년으로 향하는데. 삐리삐립
+              - - -
+            </p>
+          </div>
+          <div className="mobile">
+            <p>
+              그들이 과거의 인류가 네오라는 인격을 잘 구현하도록 분석한 결과,
+              <br />
+              메타버스라는 새로운 세계의 분기점이 된<br />
+              2022년을 목적지로 정했습니다.
+              <br />
+              또한, 혼돈 속에서 살아남은 101,485개의
+              <br />
+              네오 데이터를 압축해 양자 우주선에 실었습니다.
+            </p>
+            <p className="wide-margin">
+              드디어! 준비한 우주선이 웜홀을 거쳐 2022년으로 향하는데.
+              <br />
+              삐리삐립 - - -
+            </p>
+          </div>
         </Paragraph>
         <Paragraph>
           <h3>
             <span>다섯번째. </span>샐리 킴 박사를 아시나요?
           </h3>
-          <p>
-            웜홀을 지나던 중, 네오 데이터에서 이상현상이 발견됩니다.
-            <br />
-            101,485개로 압축한 데이터가 양자화 과정에서 단 16개로 다운그레이드된
-            것이죠.
-            <br />
-            소실되지 않은 데이터를 실은 양자 우주선은 겨우 2022년에 도달했고,
-            <br />
-            천재 샐리 킴 박사에 의해 발견됩니다.
-          </p>
-          <p>
-            미래의 인류로부터 온 중요한 데이터임을 직감한 샐리 킴 박사는
-            <br />더 이상의 데이터 소실을 막기 위한 저장장치를 개발합니다.
-          </p>
+          <div className="web">
+            <p>
+              웜홀을 지나던 중, 네오 데이터에서 이상현상이 발견됩니다.
+              <br />
+              101,485개로 압축한 데이터가 양자화 과정에서 단 16개로
+              다운그레이드된 것이죠.
+              <br />
+              소실되지 않은 데이터를 실은 양자 우주선은 겨우 2022년에 도달했고,
+              <br />
+              천재 샐리 킴 박사에 의해 발견됩니다.
+            </p>
+            <p>
+              미래의 인류로부터 온 중요한 데이터임을 직감한 샐리 킴 박사는
+              <br />더 이상의 데이터 소실을 막기 위한 저장장치를 개발합니다.
+            </p>
+          </div>
+          <div className="mobile">
+            <p>
+              웜홀을 지나던 중, 네오 데이터에서 이상현상이 발견됩니다.
+              <br />
+              101,485개로 압축한 데이터가 양자화 과정에서
+              <br />
+              단 16개로 다운그레이드된 것이죠.
+              <br />
+              소실되지 않은 데이터를 실은 양자 우주선은
+              <br />
+              겨우 2022년에 도달했고, 천재 샐리 킴 박사에 의해 발견됩니다.
+            </p>
+            <p>
+              미래의 인류로부터 온 중요한 데이터임을 직감한 샐리 킴 박사는
+              <br />더 이상의 데이터 소실을 막기 위한 저장장치를 개발합니다.
+            </p>
+          </div>
         </Paragraph>
         <Paragraph>
           <h3>
             <span>마지막. </span>깨달은 사람들
           </h3>
-          <p>
-            네오 데이터를 담을 수 있는 16개의 그릇, 애니마를 만든 샐리 킴 박사는
-            <br />
-            현재 인류에게 단호하게 공포합니다.
-            <br />
-            각자의 네오를 만들어 자신을 잃지 않아야 한다고.. 인류의 미래를
-            바꿔야 한다고..
-          </p>
-          <p>
-            이제 사람들은 자신의 인격인 네오를 만들어 사라지지 않는 네트워크에
-            기록하고, <br />
-            네오가 담긴 애니마를 점점 발전시키기 시작했습니다.
-            <br />곧 모든 사람이 알게 되겠죠. 잠깐! 이 글을 읽는 당신, 네오는
-            만드신 건가요?
-          </p>
+          <div className="web">
+            <p>
+              네오 데이터를 담을 수 있는 16개의 그릇, 애니마를 만든 샐리 킴
+              박사는
+              <br />
+              현재 인류에게 단호하게 공포합니다.
+              <br />
+              각자의 네오를 만들어 자신을 잃지 않아야 한다고.. 인류의 미래를
+              바꿔야 한다고..
+            </p>
+            <p className="wide-margin">
+              이제 사람들은 자신의 인격인 네오를 만들어 사라지지 않는 네트워크에
+              기록하고, <br />
+              네오가 담긴 애니마를 점점 발전시키기 시작했습니다.
+              <br />곧 모든 사람이 알게 되겠죠. 잠깐! 이 글을 읽는 당신, 네오는
+              만드신 건가요?
+            </p>
+          </div>
+          <div className="mobile">
+            <p>
+              네오 데이터를 담을 수 있는 16개의 그릇,
+              <br />
+              애니마를 만든 샐리 킴 박사는 현재 인류에게 단호하게 공포합니다.
+              <br />
+              각자의 네오를 만들어 자신을 잃지 않아야 한다고..
+              <br />
+              인류의 미래를 바꿔야 한다고..
+            </p>
+            <p className="wide-margin">
+              이제 사람들은 자신의 인격인 네오를 만들어
+              <br />
+              사라지지 않는 네트워크에 기록하고, <br />
+              네오가 담긴 애니마를 점점 발전시키기 시작했습니다.
+              <br />곧 모든 사람이 알게 되겠죠.
+              <br />
+              잠깐! 이 글을 읽는 당신, 네오는 만드신 건가요?
+            </p>
+          </div>
         </Paragraph>
         <StyledSection>
           <h1>
@@ -165,15 +265,19 @@ const StoryContainer = styled.div`
       font-weight: 700;
     }
   }
-  section:nth-of-type(2) {
-    margin-bottom: 211px;
-  }
-  section:nth-of-type(4) {
-    margin-bottom: 211px;
-  }
+
   ${customMedia.lessThan("mobile")`
-  width: 100vw;
+  background-image: url(/img/storybg_mobile.png);
+  background-position: center top;
   padding-top: 56px;
+  h1.main-title {
+    padding: 64px 0;
+    font-size: 24px;
+    span {
+      font-size: 32px;
+    }
+  }
+
   `}
 `;
 
@@ -183,7 +287,9 @@ const Paragraph = styled.section`
   margin: 0 auto;
   margin-bottom: 60px;
   width: 960px;
-
+  .mobile {
+    display: none;
+  }
   h3 {
     color: ${(props) => props.theme.palette.lightGrey};
     font-weight: 500;
@@ -200,15 +306,42 @@ const Paragraph = styled.section`
   }
   p:nth-of-type(1) {
     margin-bottom: 20px;
+    /* background: blue; */
+  }
+  p.wide-margin {
+    /* background: green; */
+    margin-bottom: 140px;
   }
   ${customMedia.lessThan("mobile")`
   width: 100%;
+  padding: 0 24px;
+  margin-bottom: 48px;
+  font-size: 12px;
+  line-height: 17px;
+  .mobile {
+    display: block;
+  }
+  .web {
+    display: none;
+  }
+  h3 {
+    font-size: 12px;
+    span {
+      font-size: 16px;
+    }
+  }
+  p {
+    font-size: 12px;
+  }
+  p.wide-margin {
+    margin-bottom: 80px;
+  }
   `}
 `;
 const StyledSection = styled.section`
   margin: auto;
   text-align: center;
-  padding: 140px 0 120px 0;
+  padding-bottom: 120px;
   h1 {
     font-size: 48px;
     font-weight: 700;
@@ -227,6 +360,17 @@ const StyledSection = styled.section`
   }
   ${customMedia.lessThan("mobile")`
   width: 100%;
+  padding-bottom: 64px;
+  h1 {
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 32px;
+  }
+  button {
+    width: 114px;
+    height: 52px;
+    font-size: 16px;
+  }
   `}
 `;
 export default StoryPage;
