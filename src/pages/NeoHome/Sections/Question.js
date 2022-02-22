@@ -9,9 +9,11 @@ import { useDispatch } from "react-redux";
 import { customMedia } from "../../../styles/GlobalStyle";
 import { useSelector } from "react-redux";
 import Modal from "../../../components/modals/Modal";
+import ItemModal from "../../../components/modals/ItemModal";
+import ItemModalContent from "../../../components/modals/ItemModalContent";
 import LoadingModal from "../../../components/modals/LoadingModal";
 import { getOwnerInfo } from "../../../modules/owner";
-import { setBig5Answers, setScroll, setTab } from "../../../modules/neohome";
+import { setScroll, setTab } from "../../../modules/neohome";
 
 const checked = [images.c1, images.c2, images.c3, images.c4, images.c5];
 const unchecked = [images.uc1, images.uc2, images.uc3, images.uc4, images.uc5];
@@ -41,19 +43,29 @@ function Question({ store }) {
   const [weekend, setWeekend] = useState(store.is_weekend);
   const [itemName, setItemName] = useState("");
   const [itemImg, setItemImg] = useState("");
+  const [itemDesc, setItemDesc] = useState("");
+
   const [modalVisible, setModalVisible] = useState(false);
+  const [itemModalVisible, setItemModalVisible] = useState(false);
   const [loadingModalVisible, setLoadingModalVisible] = useState(false);
 
   const openModal = () => {
     setModalVisible(true);
   };
   const closeModal = () => {
+    setModalVisible(false);
+  };
+  const showNextModal = () => {
+    setModalVisible(false);
+    setItemModalVisible(true);
+  };
+  const closeItemModal = () => {
     // 아이템 지급 모달 - '닫기' => 주인정보 새로 요청
     dispatch(getOwnerInfo(store_neohome.nickname)).then(() => {
-      setModalVisible(false);
+      setItemModalVisible(false);
     });
   };
-  const scrollModal = () => {
+  const scrollItemModal = () => {
     // 아이템 지급 모달 - '캐릭터 보기' => Charater.js useEffect에서 scroll = true면 주인정보 새로 요청
     dispatch(setTab("character"));
     dispatch(setScroll("character_room"));
@@ -252,14 +264,23 @@ function Question({ store }) {
           네오에게 인격 담기
         </StyledButton>
       </div>
-
+      {loadingModalVisible && (
+        <LoadingModal
+          visible={loadingModalVisible}
+          closable={true}
+          maskClosable={true}
+          onClose={closeLoadingModal}
+          item
+        ></LoadingModal>
+      )}
       {modalVisible && (
         <Modal
           visible={modalVisible}
           closable={true}
           maskClosable={true}
           onClose={closeModal}
-          onScroll={scrollModal}
+          onShowNext={showNextModal}
+          noItem={itemName == null}
         >
           <ModalContent>
             {/* 아래 정의되어 있음 */}
@@ -303,19 +324,30 @@ function Question({ store }) {
           </ModalContent>
         </Modal>
       )}
-
-      {loadingModalVisible && (
-        <LoadingModal
-          visible={loadingModalVisible}
+      {itemModalVisible && (
+        <ItemModal
+          visible={itemModalVisible}
           closable={true}
           maskClosable={true}
-          onClose={closeLoadingModal}
-          item
-        ></LoadingModal>
+          onClose={closeItemModal}
+          onScroll={scrollItemModal}
+          newItem={true}
+        >
+          <ItemModalContent>
+            <div className="img-container">
+              <img src={itemImg} className="item-modal-img" />
+            </div>
+            <h3 className="item-modal-name">{itemName}</h3>
+            <div className="desc-container">
+              <p className="item-modal-desc">{itemDesc}</p>
+            </div>
+          </ItemModalContent>
+        </ItemModal>
       )}
     </SectionContainer>
   );
 }
+2;
 export default Question;
 
 const QuestionsContainer = styled.div`
