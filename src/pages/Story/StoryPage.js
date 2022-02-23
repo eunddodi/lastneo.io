@@ -1,14 +1,11 @@
 /* eslint-disable */
 import React from "react";
 import styled, { css } from "styled-components";
-import { useHistory } from "react-router-dom";
 import LandingNav from "../Landing/LandingNav";
 import Footer from "../../components/Footer";
 import { customMedia } from "../../styles/GlobalStyle";
-import Container from "../../components/Container";
 
 function StoryPage() {
-  const history = useHistory();
   return (
     <>
       <LandingNav></LandingNav>
@@ -359,6 +356,9 @@ const StyledSection = styled.section`
     color: ${(props) => props.theme.palette.white};
     font-size: 18px;
     font-weight: 500;
+    &:hover {
+      background-color: ${(props) => props.theme.palette.darkPurple};
+    }
   }
   ${customMedia.lessThan("mobile")`
   width: 100%;

@@ -32,6 +32,7 @@ const ItemModalContent = styled.div`
     font-size: 18px;
     font-weight: 400;
     color: ${(props) => props.theme.palette.darkGrey};
+    word-wrap: break-word;
   }
   ${customMedia.lessThan("mobile")`
   .img-container {
