@@ -29,6 +29,7 @@ const theme = {
     powderYellow: "#fff0c1",
     black: "#1f1f1f",
     tBlack: "#666666",
+    darkBrown: "#3D3D3D",
   },
 };
 
