@@ -236,7 +236,7 @@ function StoryPage() {
           </h1>
           <button
             onClick={() => {
-              history.push("register");
+              window.location.href = "register";
             }}
           >
             네오 만들기
@@ -251,7 +251,7 @@ function StoryPage() {
 const StoryContainer = styled.div`
   background-image: url(/img/storybg_web.png);
   background-position: center top;
-  padding-top: 60px;
+  margin-top: 60px;
   width: 100%;
   h1.main-title {
     padding: 120px 0;
@@ -269,7 +269,8 @@ const StoryContainer = styled.div`
   ${customMedia.lessThan("mobile")`
   background-image: url(/img/storybg_mobile.png);
   background-position: center top;
-  padding-top: 56px;
+  background-size: cover;
+  margin-top: 56px;
   h1.main-title {
     padding: 64px 0;
     font-size: 24px;
@@ -297,6 +298,7 @@ const Paragraph = styled.section`
     span {
       color: ${(props) => props.theme.palette.coolPurple};
       font-size: 28px;
+      font-weight: 500;
     }
   }
   p {
@@ -361,6 +363,7 @@ const StyledSection = styled.section`
   ${customMedia.lessThan("mobile")`
   width: 100%;
   padding-bottom: 64px;
+  padding-top: 66px;
   h1 {
     font-size: 32px;
     line-height: 48px;
