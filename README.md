@@ -2,6 +2,26 @@
 
 pc, 모바일 호환 가능한 반응형 웹페이지입니다. 현재는 회사 운영 종료로 사이트가 서버에서 내려간 상태입니다. 
 
+### 디렉토리 구조 및 사용 라이브러리
+🗂 **src**
+
+- 📁 **assets**
+: 이미지 파일
+- 📁 **components**
+: 재사용성을 가진 컴포넌트(모달, navbar, footer, styled-components를 이용한 각종 버튼, 컨테이너 등)
+- 📁 **modules**
+: 기능별 리듀서, 액션, 액션 생성 함수, thunk 함수(Ducks 패턴을 채택하여 기능별로 한 파일에 작성)
+- 📁 **pages**
+: *기능별 페이지들로 구성된 하위 폴더들* 의 모음
+- 📁 **styles**
+: css 전역변수, styled-components의 GlobalStyle, 미디어쿼리 등을 정의
+- 📁 **utils**
+: 각종 함수 모음
+- App.js
+- index.js
+- keys.js
+: 서버요청 baseurl들을 정의(통상적인 env 파일과 유사)
+
 ### 스크린샷
 <img width="1440" alt="스크린샷 2022-04-27 오전 9 43 10" src="https://user-images.githubusercontent.com/87167786/172777462-ba005823-0b50-4437-beb1-f9b567826c35.png">
 <img width="1440" alt="스크린샷 2022-04-27 오전 9 43 26" src="https://user-images.githubusercontent.com/87167786/172777469-5105f035-2114-4844-bc21-4c4997d7c110.png">
