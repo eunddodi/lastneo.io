@@ -2,7 +2,7 @@
 
 pc, 모바일 호환 가능한 반응형 웹페이지입니다. 현재는 회사 운영 종료로 사이트가 서버에서 내려간 상태입니다. 
 
-### 디렉토리 구조 및 사용 라이브러리
+### 디렉토리 구조
 🗂 **src**
 
 - 📁 **assets**
@@ -21,6 +21,22 @@ pc, 모바일 호환 가능한 반응형 웹페이지입니다. 현재는 회사
 - index.js
 - keys.js
 : 서버요청 baseurl들을 정의(통상적인 env 파일과 유사)
+
+### 사용 라이브러리
+- react 17.0.2
+- axios 0.25.0
+- react-redux 7.2.6
+- react-router-dom 5.3.0
+- redux 4.1.2
+- redux-thunk 2.4.1
+- react-share 4.4.0
+- styled-components 5.3.3
+- styled-media-query 2.1.2
+
+### 유저 시나리오
+![image](https://user-images.githubusercontent.com/87167786/172781294-b99e4bef-2671-460c-8a1f-531547528387.png)
+![image](https://user-images.githubusercontent.com/87167786/172781329-a4d1ef94-b658-41dd-8f32-16469a102561.png)
+
 
 ### 스크린샷
 <img width="1440" alt="스크린샷 2022-04-27 오전 9 43 10" src="https://user-images.githubusercontent.com/87167786/172777462-ba005823-0b50-4437-beb1-f9b567826c35.png">
@@ -44,4 +60,5 @@ pc, 모바일 호환 가능한 반응형 웹페이지입니다. 현재는 회사
 
 [인턴기록 1: 라우팅](https://velog.io/@eunddodi/%EC%9D%B8%ED%84%B4%EA%B8%B0%EB%A1%9D-%EB%9D%BC%EC%9A%B0%ED%8C%85)
 
+[인턴기록 2: 회원가입 구현](https://velog.io/@eunddodi/%EC%9D%B8%ED%84%B4%EA%B8%B0%EB%A1%9D2-%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%EA%B5%AC%ED%98%84)
 
